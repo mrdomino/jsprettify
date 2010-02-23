@@ -47,4 +47,11 @@ limitations under the License.
     assertEquals(prettify.entities.emdash + ' ' + prettify.entities.emdash,
         prettify.prettify(myString));
   }
+  function testPrettifiesEmAndEnDashes() {
+    var em = prettify.entities.emdash;
+    var en = prettify.entities.endash;
+    var myString = '--- -- --- -- -- ---';
+    var res = em + ' ' + en + ' '+ em + ' ' + en + ' ' + en + ' ' + em;
+    assertEquals(res, prettify.prettify(myString));
+  }
 </script>
