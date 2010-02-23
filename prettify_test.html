@@ -28,21 +28,23 @@ limitations under the License.
     assertEquals(prettify.prettify(myString), myString);
   }
   function testPrettifiesEnDashes() {
-    var endash = '&#8211;';
     var myString = '--'
-    assertEquals(endash, prettify.prettify(myString));
+    assertEquals(prettify.entities.endash, prettify.prettify(myString));
     myString = 'Test -- some more text.';
-    assertEquals('Test ' + endash + ' some more text.', prettify.prettify(myString));
+    assertEquals('Test ' + prettify.entities.endash + ' some more text.',
+        prettify.prettify(myString));
     myString = '-- --';
-    assertEquals(endash + ' ' + endash, prettify.prettify(myString));
+    assertEquals(prettify.entities.endash + ' ' + prettify.entities.endash,
+        prettify.prettify(myString));
   }
   function testPrettifiesEmDashes() {
-    var emdash = '&#8212;'
     var myString = '---'
-    assertEquals(emdash, prettify.prettify(myString));
+    assertEquals(prettify.entities.emdash, prettify.prettify(myString));
     myString = 'Test --- some more text.';
-    assertEquals('Test ' + emdash + ' some more text.', prettify.prettify(myString));
+    assertEquals('Test ' + prettify.entities.emdash + ' some more text.',
+        prettify.prettify(myString));
     myString = '--- ---';
-    assertEquals(emdash + ' ' + emdash, prettify.prettify(myString));
+    assertEquals(prettify.entities.emdash + ' ' + prettify.entities.emdash,
+        prettify.prettify(myString));
   }
 </script>
