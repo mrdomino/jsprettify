@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-goog.provide('Prettify.prettify');
+goog.provide('prettify.prettify');
 
 
-Prettify.prettify = function(text) {
+prettify.prettify = function(text) {
   var endash = '&#8211;'
   if (text == '--') {
     text = endash;
