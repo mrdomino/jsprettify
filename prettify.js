@@ -14,15 +14,21 @@
 
 goog.provide('prettify.prettify');
 
+goog.require('goog.array');
+
 
 prettify.prettify = function(text) {
   var emdash = '&#8212;'
-  var re = new RegExp('---', 'g');
-  text = text.replace(re, emdash);
-
   var endash = '&#8211;'
-  re = new RegExp('--', 'g');
-  text = text.replace(re, endash);
 
+  var subs = [
+    ['---', emdash],
+    ['--', endash]
+  ];
+  goog.array.forEach(subs, function(arr) {
+    var re = new RegExp(arr[0], 'g');
+    var sub = arr[1];
+    text = text.replace(re, sub);
+  });
   return text;
 };
