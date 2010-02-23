@@ -22,12 +22,12 @@ limitations under the License.
 </script>
 <body>
 <script>
-  var endash = '&#8211;';
   function testPreservesPrettyInput() {
     var myString = 'A very pretty string.';
     assertEquals(prettify.prettify(myString), myString);
   }
   function testPrettifiesEnDashes() {
+    var endash = '&#8211;';
     var myString = '--'
     assertEquals(endash, prettify.prettify(myString));
     myString = 'Test -- some more text.';
