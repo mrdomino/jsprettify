@@ -30,5 +30,7 @@ limitations under the License.
   function testPrettifiesEnDashes() {
     var myString = '--'
     assertEquals(endash, prettify.prettify(myString));
+    myString = 'Test -- some more text.';
+    assertEquals('Test ' + endash + ' some more text.', prettify.prettify(myString));
   }
 </script>
