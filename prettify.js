@@ -35,7 +35,8 @@ prettify.prettify = function(text) {
   var subs = [
     ['---', prettify.entities.emdash],
     ['--', prettify.entities.endash],
-    ['\\.\\.\\.', prettify.entities.hellip]
+    ['\\.\\.\\.', prettify.entities.hellip],
+    ["'", prettify.entities.lsquo]
   ];
   goog.array.forEach(subs, function(arr) {
     var re = new RegExp(arr[0], 'g');
