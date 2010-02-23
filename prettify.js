@@ -17,10 +17,22 @@ goog.provide('prettify.prettify');
 goog.require('goog.array');
 
 
+/**
+ * Prettifies strings by replacing ASCII shorthand with the HTML
+ * entities for their proper typographical symbols.
+ * @param {string} text Text to prettify.
+ * @return {string} Prettified text.
+ */
 prettify.prettify = function(text) {
   var emdash = '&#8212;'
   var endash = '&#8211;'
-
+  /**
+   * This array-of-arrays holds entries consisting of patterns and
+   * substitutions in the order that they are to be applied. We need to
+   * preserve order, since e.g. if -- were replaced before ---, disaster
+   * would ensue.
+   * @type {Array.<Array.<string>>}
+   */
   var subs = [
     ['---', emdash],
     ['--', endash]
