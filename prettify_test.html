@@ -35,4 +35,13 @@ limitations under the License.
     myString = '-- --';
     assertEquals(endash + ' ' + endash, prettify.prettify(myString));
   }
+  function testPrettifiesEmDashes() {
+    var emdash = '&#8212;'
+    var myString = '---'
+    assertEquals(emdash, prettify.prettify(myString));
+    myString = 'Test --- some more text.';
+    assertEquals('Test ' + emdash + ' some more text.', prettify.prettify(myString));
+    myString = '--- ---';
+    assertEquals(emdash + ' ' + emdash, prettify.prettify(myString));
+  }
 </script>
