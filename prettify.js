@@ -15,6 +15,7 @@
 goog.provide('prettify.prettify');
 
 goog.require('goog.array');
+goog.require('prettify.entities');
 
 
 /**
@@ -24,8 +25,6 @@ goog.require('goog.array');
  * @return {string} Prettified text.
  */
 prettify.prettify = function(text) {
-  var emdash = '&#8212;'
-  var endash = '&#8211;'
   /**
    * This array-of-arrays holds entries consisting of patterns and
    * substitutions in the order that they are to be applied. We need to
@@ -34,8 +33,8 @@ prettify.prettify = function(text) {
    * @type {Array.<Array.<string>>}
    */
   var subs = [
-    ['---', emdash],
-    ['--', endash]
+    ['---', prettify.entities.emdash],
+    ['--', prettify.entities.endash]
   ];
   goog.array.forEach(subs, function(arr) {
     var re = new RegExp(arr[0], 'g');
