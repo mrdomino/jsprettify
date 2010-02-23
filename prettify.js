@@ -17,6 +17,7 @@ goog.provide('prettify.prettify');
 
 prettify.prettify = function(text) {
   var endash = '&#8211;'
-  text = text.replace('--', endash);
+  var re = new RegExp('--', 'g');
+  text = text.replace(re, endash);
   return text;
 };

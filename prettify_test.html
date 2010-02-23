@@ -32,5 +32,7 @@ limitations under the License.
     assertEquals(endash, prettify.prettify(myString));
     myString = 'Test -- some more text.';
     assertEquals('Test ' + endash + ' some more text.', prettify.prettify(myString));
+    myString = '-- --';
+    assertEquals(endash + ' ' + endash, prettify.prettify(myString));
   }
 </script>
