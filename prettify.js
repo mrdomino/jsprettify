@@ -16,8 +16,13 @@ goog.provide('prettify.prettify');
 
 
 prettify.prettify = function(text) {
+  var emdash = '&#8212;'
+  var re = new RegExp('---', 'g');
+  text = text.replace(re, emdash);
+
   var endash = '&#8211;'
-  var re = new RegExp('--', 'g');
+  re = new RegExp('--', 'g');
   text = text.replace(re, endash);
+
   return text;
 };
