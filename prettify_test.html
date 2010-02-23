@@ -23,40 +23,37 @@ limitations under the License.
 </script>
 <body>
 <script>
+  // Helper function for prettified output.
+  function assertPrettifiedEquals(expected, input) {
+    assertEquals(expected, prettify.prettify(input));
+  }
   function testPreservesPrettyInput() {
     var myString = 'A very pretty string.';
-    assertEquals(prettify.prettify(myString), myString);
+    assertPrettifiedEquals(myString, myString);
   }
   function testPrettifiesEnDashes() {
-    var myString = '--'
-    assertEquals(prettify.entities.endash, prettify.prettify(myString));
-    myString = 'Test -- some more text.';
-    assertEquals('Test ' + prettify.entities.endash + ' some more text.',
-        prettify.prettify(myString));
-    myString = '-- --';
-    assertEquals(prettify.entities.endash + ' ' + prettify.entities.endash,
-        prettify.prettify(myString));
+    assertPrettifiedEquals(prettify.entities.endash, '--');
+    assertPrettifiedEquals('Test ' + prettify.entities.endash +' text.',
+        'Test -- text.');
+    assertPrettifiedEquals(prettify.entities.endash + ' ' +
+        prettify.entities.endash, '-- --');
   }
   function testPrettifiesEmDashes() {
-    var myString = '---'
-    assertEquals(prettify.entities.emdash, prettify.prettify(myString));
-    myString = 'Test --- some more text.';
-    assertEquals('Test ' + prettify.entities.emdash + ' some more text.',
-        prettify.prettify(myString));
-    myString = '--- ---';
-    assertEquals(prettify.entities.emdash + ' ' + prettify.entities.emdash,
-        prettify.prettify(myString));
+    assertPrettifiedEquals(prettify.entities.emdash, '---');
+    assertPrettifiedEquals('Test ' + prettify.entities.emdash + ' text.',
+        'Test --- text.');
+    assertPrettifiedEquals(prettify.entities.emdash + ' ' +
+        prettify.entities.emdash, '--- ---');
   }
   function testPrettifiesEmAndEnDashes() {
     var em = prettify.entities.emdash;
     var en = prettify.entities.endash;
-    var myString = '--- -- --- -- -- ---';
-    var res = em + ' ' + en + ' '+ em + ' ' + en + ' ' + en + ' ' + em;
-    assertEquals(res, prettify.prettify(myString));
+    var inputStr = '--- -- --- -- -- ---';
+    var expected = [em, en,em, en,en,em].join(' ');
+    assertPrettifiedEquals(expected, inputStr);
   }
   function testPrettifiesEllipses() {
-    var myString = 'Test... ...Test.';
-    assertEquals('Test' + prettify.entities.hellip + ' ' +
-        prettify.entities.hellip + 'Test.', prettify.prettify(myString));
+    assertPrettifiedEquals('Test' + prettify.entities.hellip + ' ' +
+        prettify.entities.hellip + 'Test.', 'Test... ...Test.');
   }
 </script>
