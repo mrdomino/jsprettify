@@ -54,4 +54,9 @@ limitations under the License.
     var res = em + ' ' + en + ' '+ em + ' ' + en + ' ' + en + ' ' + em;
     assertEquals(res, prettify.prettify(myString));
   }
+  function testPrettifiesEllipses() {
+    var myString = 'Test... ...Test.';
+    assertEquals('Test' + prettify.entities.hellip + ' ' +
+        prettify.entities.hellip + 'Test.', prettify.prettify(myString));
+  }
 </script>

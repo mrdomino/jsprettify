@@ -22,3 +22,4 @@ prettify.entities;
 
 prettify.entities.endash = '&#8211;';
 prettify.entities.emdash = '&#8212;';
+prettify.entities.hellip = '&#8230;';
