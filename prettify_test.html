@@ -56,4 +56,7 @@ limitations under the License.
     assertPrettifiedEquals('Test' + prettify.entities.hellip + ' ' +
         prettify.entities.hellip + 'Test.', 'Test... ...Test.');
   }
+  function testPrettifiesOpenSingleQuotes() {
+    assertPrettifiedEquals(prettify.entities.lsquo + 'word.', "'word.");
+  }
 </script>
