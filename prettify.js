@@ -14,7 +14,6 @@
 
 goog.provide('prettify.prettify');
 
-goog.require('goog.array');
 goog.require('prettify.entities');
 
 
@@ -41,10 +40,11 @@ prettify.prettify = function(text) {
     ["'($|[\\s\"])?", prettify.entities.rsquo + '$1'],
     ['"($|\\s)', prettify.entities.rdquo + '$1']
   ];
-  goog.array.forEach(subs, function(arr) {
+  for (var i = 0; i < subs.length; i++) {
+    var arr = subs[i];
     var re = new RegExp(arr[0], 'g');
     var sub = arr[1];
     text = text.replace(re, sub);
-  });
+  };
   return text;
 };
