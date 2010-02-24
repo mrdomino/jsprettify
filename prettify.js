@@ -20,15 +20,15 @@ goog.provide('prettify.entities');
  * This object contains some common typographical HTML entities.
  * @type {Object.<string,string>}
  */
-prettify.entities;
-
-prettify.entities.endash = '&#8211;';
-prettify.entities.emdash = '&#8212;';
-prettify.entities.lsquo  = '&#8216;';
-prettify.entities.rsquo  = '&#8217;';
-prettify.entities.ldquo  = '&#8220;';
-prettify.entities.rdquo  = '&#8221;';
-prettify.entities.hellip = '&#8230;';
+prettify.entities = {
+  endash: '&#8211;',
+  emdash: '&#8212;',
+  lsquo:  '&#8216;',
+  rsquo:  '&#8217;',
+  ldquo:  '&#8220;',
+  rdquo:  '&#8221;',
+  hellip: '&#8230;',
+};
 
 
 /**
