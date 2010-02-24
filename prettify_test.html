@@ -79,4 +79,9 @@ limitations under the License.
   function testPrettifiesQuotesInContractions() {
     assertPrettifiedEquals('I' + prettify.entities.rsquo + 'm', "I'm");
   }
+  function testPrettifiesQuotesThatAreEmpty() {
+    assertPrettifiedEquals(prettify.entities.ldquo +
+        prettify.entities.lsquo + prettify.entities.rsquo +
+        prettify.entities.rdquo, '"\'\'"');
+  }
 </script>
