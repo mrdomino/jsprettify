@@ -25,6 +25,10 @@ limitations under the License.
   window.onload = function() {
     var node = goog.dom.$('prettified');
     var text = node.innerHTML;
+    /*
+     * Note that this is a bad way of doing things; quotes in the HTML
+     * (rather than the text) will get mangled.
+     */
     node.innerHTML = prettify.prettify(text);
   }
 </script>
