@@ -36,17 +36,13 @@ limitations under the License.
   }
   function testPrettifiesEnDashes() {
     assertPrettifiedEquals(e.endash, '--');
-    assertPrettifiedEquals('Test ' + e.endash +' text.',
-        'Test -- text.');
-    assertPrettifiedEquals(e.endash + ' ' +
-        e.endash, '-- --');
+    assertPrettifiedEquals('Test ' + e.endash +' text.', 'Test -- text.');
+    assertPrettifiedEquals(e.endash + ' ' + e.endash, '-- --');
   }
   function testPrettifiesEmDashes() {
     assertPrettifiedEquals(e.emdash, '---');
-    assertPrettifiedEquals('Test ' + e.emdash + ' text.',
-        'Test --- text.');
-    assertPrettifiedEquals(e.emdash + ' ' +
-        e.emdash, '--- ---');
+    assertPrettifiedEquals('Test ' + e.emdash + ' text.', 'Test --- text.');
+    assertPrettifiedEquals(e.emdash + ' ' + e.emdash, '--- ---');
   }
   function testPrettifiesEmAndEnDashes() {
     var em = e.emdash;
@@ -56,8 +52,8 @@ limitations under the License.
     assertPrettifiedEquals(expected, inputStr);
   }
   function testPrettifiesEllipses() {
-    assertPrettifiedEquals('Test' + e.hellip + ' ' +
-        e.hellip + 'Test.', 'Test... ...Test.');
+    assertPrettifiedEquals('Test' + e.hellip + ' ' + e.hellip + 'Test.',
+        'Test... ...Test.');
   }
   function testPrettifiesQuotesAtStartOfLine() {
     assertPrettifiedEquals(e.lsquo + 'word.', "'word.");
@@ -68,23 +64,19 @@ limitations under the License.
     assertPrettifiedEquals('word.' + e.rdquo, 'word."');
   }
   function testPrettifiesQuotesWithWhitespace() {
-    assertPrettifiedEquals('Word\t' + e.lsquo + 'word' +
-        e.rsquo + '\nword.', "Word\t'word'\nword.");
-    assertPrettifiedEquals('Word\t' + e.ldquo + 'word' +
-        e.rdquo + '\nword.', 'Word\t"word"\nword.');
+    assertPrettifiedEquals('Word\t' + e.lsquo + 'word' + e.rsquo + '\nword.',
+        "Word\t'word'\nword.");
+    assertPrettifiedEquals('Word\t' + e.ldquo + 'word' + e.rdquo + '\nword.',
+        'Word\t"word"\nword.');
   }
   function testPrettifiesQuotesInQuotes() {
-    assertPrettifiedEquals(e.ldquo +
-        e.lsquo + 'Word quoted' +
-        e.rsquo + e.rdquo,
-        '"\'Word quoted\'"');
+    assertPrettifiedEquals(e.ldquo + e.lsquo + 'Word quoted' + e.rsquo +
+        e.rdquo, '"\'Word quoted\'"');
   }
   function testPrettifiesQuotesInContractions() {
     assertPrettifiedEquals('I' + e.rsquo + 'm', "I'm");
   }
   function testPrettifiesQuotesThatAreEmpty() {
-    assertPrettifiedEquals(e.ldquo +
-        e.lsquo + e.rsquo +
-        e.rdquo, '"\'\'"');
+    assertPrettifiedEquals(e.ldquo + e.lsquo + e.rsquo + e.rdquo, '"\'\'"');
   }
 </script>
