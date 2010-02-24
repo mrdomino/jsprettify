@@ -24,6 +24,8 @@ limitations under the License.
 </script>
 <body>
 <script>
+  // Shorten long object references.
+  var e = jsprettify.entities;
   // Helper function for prettified output.
   function assertPrettifiedEquals(expected, input) {
     assertEquals(expected, jsprettify.prettifyStr(input));
@@ -33,56 +35,56 @@ limitations under the License.
     assertPrettifiedEquals(myString, myString);
   }
   function testPrettifiesEnDashes() {
-    assertPrettifiedEquals(jsprettify.entities.endash, '--');
-    assertPrettifiedEquals('Test ' + jsprettify.entities.endash +' text.',
+    assertPrettifiedEquals(e.endash, '--');
+    assertPrettifiedEquals('Test ' + e.endash +' text.',
         'Test -- text.');
-    assertPrettifiedEquals(jsprettify.entities.endash + ' ' +
-        jsprettify.entities.endash, '-- --');
+    assertPrettifiedEquals(e.endash + ' ' +
+        e.endash, '-- --');
   }
   function testPrettifiesEmDashes() {
-    assertPrettifiedEquals(jsprettify.entities.emdash, '---');
-    assertPrettifiedEquals('Test ' + jsprettify.entities.emdash + ' text.',
+    assertPrettifiedEquals(e.emdash, '---');
+    assertPrettifiedEquals('Test ' + e.emdash + ' text.',
         'Test --- text.');
-    assertPrettifiedEquals(jsprettify.entities.emdash + ' ' +
-        jsprettify.entities.emdash, '--- ---');
+    assertPrettifiedEquals(e.emdash + ' ' +
+        e.emdash, '--- ---');
   }
   function testPrettifiesEmAndEnDashes() {
-    var em = jsprettify.entities.emdash;
-    var en = jsprettify.entities.endash;
+    var em = e.emdash;
+    var en = e.endash;
     var inputStr = '--- -- --- -- -- ---';
     var expected = [em, en,em, en,en,em].join(' ');
     assertPrettifiedEquals(expected, inputStr);
   }
   function testPrettifiesEllipses() {
-    assertPrettifiedEquals('Test' + jsprettify.entities.hellip + ' ' +
-        jsprettify.entities.hellip + 'Test.', 'Test... ...Test.');
+    assertPrettifiedEquals('Test' + e.hellip + ' ' +
+        e.hellip + 'Test.', 'Test... ...Test.');
   }
   function testPrettifiesQuotesAtStartOfLine() {
-    assertPrettifiedEquals(jsprettify.entities.lsquo + 'word.', "'word.");
-    assertPrettifiedEquals(jsprettify.entities.ldquo + 'word.', '"word.');
+    assertPrettifiedEquals(e.lsquo + 'word.', "'word.");
+    assertPrettifiedEquals(e.ldquo + 'word.', '"word.');
   }
   function testPrettifiesQuotesAtEndOfLine() {
-    assertPrettifiedEquals('word.' + jsprettify.entities.rsquo, "word.'");
-    assertPrettifiedEquals('word.' + jsprettify.entities.rdquo, 'word."');
+    assertPrettifiedEquals('word.' + e.rsquo, "word.'");
+    assertPrettifiedEquals('word.' + e.rdquo, 'word."');
   }
   function testPrettifiesQuotesWithWhitespace() {
-    assertPrettifiedEquals('Word\t' + jsprettify.entities.lsquo + 'word' +
-        jsprettify.entities.rsquo + '\nword.', "Word\t'word'\nword.");
-    assertPrettifiedEquals('Word\t' + jsprettify.entities.ldquo + 'word' +
-        jsprettify.entities.rdquo + '\nword.', 'Word\t"word"\nword.');
+    assertPrettifiedEquals('Word\t' + e.lsquo + 'word' +
+        e.rsquo + '\nword.', "Word\t'word'\nword.");
+    assertPrettifiedEquals('Word\t' + e.ldquo + 'word' +
+        e.rdquo + '\nword.', 'Word\t"word"\nword.');
   }
   function testPrettifiesQuotesInQuotes() {
-    assertPrettifiedEquals(jsprettify.entities.ldquo +
-        jsprettify.entities.lsquo + 'Word quoted' +
-        jsprettify.entities.rsquo + jsprettify.entities.rdquo,
+    assertPrettifiedEquals(e.ldquo +
+        e.lsquo + 'Word quoted' +
+        e.rsquo + e.rdquo,
         '"\'Word quoted\'"');
   }
   function testPrettifiesQuotesInContractions() {
-    assertPrettifiedEquals('I' + jsprettify.entities.rsquo + 'm', "I'm");
+    assertPrettifiedEquals('I' + e.rsquo + 'm', "I'm");
   }
   function testPrettifiesQuotesThatAreEmpty() {
-    assertPrettifiedEquals(jsprettify.entities.ldquo +
-        jsprettify.entities.lsquo + jsprettify.entities.rsquo +
-        jsprettify.entities.rdquo, '"\'\'"');
+    assertPrettifiedEquals(e.ldquo +
+        e.lsquo + e.rsquo +
+        e.rdquo, '"\'\'"');
   }
 </script>
