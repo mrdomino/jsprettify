@@ -36,7 +36,7 @@ prettify.prettify = function(text) {
     ['---', prettify.entities.emdash],
     ['--', prettify.entities.endash],
     ['\\.\\.\\.', prettify.entities.hellip],
-    ["(^| )'", '$1' + prettify.entities.lsquo],
+    ["(^|[ \"])'", '$1' + prettify.entities.lsquo],
     ['(^| )"', '$1' + prettify.entities.ldquo],
     ["'($| )", prettify.entities.rsquo + '$1'],
     ['"($| )', prettify.entities.rdquo + '$1']
