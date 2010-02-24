@@ -13,8 +13,8 @@
 // limitations under the License.
 
 if (typeof goog != 'undefined') {
-goog.provide('jsprettify.prettifyStr');
 goog.provide('jsprettify.entities');
+goog.provide('jsprettify.prettifyStr');
 }
 
 var jsprettify = jsprettify || {};
