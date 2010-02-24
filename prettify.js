@@ -41,6 +41,7 @@ jsprettify.entities = {
  * @return {string} Prettified text.
  */
 jsprettify.prettify = function(text) {
+  var e = jsprettify.entities;
   /**
    * This array-of-arrays holds entries consisting of patterns and
    * substitutions in the order that they are to be applied. We need to
@@ -49,13 +50,13 @@ jsprettify.prettify = function(text) {
    * @type {Array.<Array.<string>>}
    */
   var subs = [
-    ['---', jsprettify.entities.emdash],
-    ['--', jsprettify.entities.endash],
-    ['\\.\\.\\.', jsprettify.entities.hellip],
-    ["(^|[\\s\"])'", '$1' + jsprettify.entities.lsquo],
-    ['(^|\\s)"', '$1' + jsprettify.entities.ldquo],
-    ["'($|[\\s\"])?", jsprettify.entities.rsquo + '$1'],
-    ['"($|\\s)', jsprettify.entities.rdquo + '$1']
+    ['---', e.emdash],
+    ['--', e.endash],
+    ['\\.\\.\\.', e.hellip],
+    ["(^|[\\s\"])'", '$1' + e.lsquo],
+    ['(^|\\s)"', '$1' + e.ldquo],
+    ["'($|[\\s\"])?", e.rsquo + '$1'],
+    ['"($|\\s)', e.rdquo + '$1']
   ];
   for (var i = 0; i < subs.length; i++) {
     var arr = subs[i];
