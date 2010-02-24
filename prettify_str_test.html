@@ -20,13 +20,13 @@ limitations under the License.
 <script>
   goog.require('goog.testing.jsunit');
   goog.require('jsprettify.entities');
-  goog.require('jsprettify.prettify');
+  goog.require('jsprettify.prettifyStr');
 </script>
 <body>
 <script>
   // Helper function for prettified output.
   function assertPrettifiedEquals(expected, input) {
-    assertEquals(expected, jsprettify.prettify(input));
+    assertEquals(expected, jsprettify.prettifyStr(input));
   }
   function testPreservesPrettyInput() {
     var myString = 'A very pretty string.';
