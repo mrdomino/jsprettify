@@ -13,7 +13,7 @@
 // limitations under the License.
 
 if (typeof goog != 'undefined') {
-goog.provide('jsprettify.prettify');
+goog.provide('jsprettify.prettifyStr');
 goog.provide('jsprettify.entities');
 }
 
@@ -40,7 +40,7 @@ jsprettify.entities = {
  * @param {string} text Text to prettify.
  * @return {string} Prettified text.
  */
-jsprettify.prettify = function(text) {
+jsprettify.prettifyStr = function(text) {
   var e = jsprettify.entities;
   /**
    * This array-of-arrays holds entries consisting of patterns and
