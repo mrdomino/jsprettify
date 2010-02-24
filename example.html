@@ -15,15 +15,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <title>Prettify Example</title>
-<script src="../closure-library/closure/goog/base.js"></script>
-<script src="deps.js"></script>
-<script>
-  goog.require('goog.dom');
-  goog.require('prettify.prettify');
-</script>
+<script src="prettify.js"></script>
 <script>
   window.onload = function() {
-    var node = goog.dom.$('prettified');
+    var node = document.getElementById('prettified');
     var text = node.innerHTML;
     /*
      * Note that this is a bad way of doing things; quotes in the HTML
