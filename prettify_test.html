@@ -65,10 +65,10 @@ limitations under the License.
     assertPrettifiedEquals('word.' + prettify.entities.rsquo, "word.'");
     assertPrettifiedEquals('word.' + prettify.entities.rdquo, 'word."');
   }
-  function testPrettifiesQuotesAfterWhitespace() {
-    assertPrettifiedEquals('Word ' + prettify.entities.lsquo + 'word.',
-        "Word 'word.");
-    assertPrettifiedEquals('Word ' + prettify.entities.ldquo + 'word.',
-        'Word "word.');
+  function testPrettifiesQuotesWithWhitespace() {
+    assertPrettifiedEquals('Word ' + prettify.entities.lsquo + 'word' +
+        prettify.entities.rsquo + ' word.', "Word 'word' word.");
+    assertPrettifiedEquals('Word ' + prettify.entities.ldquo + 'word' +
+        prettify.entities.rdquo + ' word.', 'Word "word" word.');
   }
 </script>
