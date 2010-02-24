@@ -1,0 +1,24 @@
+<!doctype html>
+<title>Prettify Example</title>
+<script src="prettify.js"></script>
+<script>
+  window.onload = function() {
+    var node = document.getElementById('prettified');
+    var text = node.innerHTML;
+    /*
+     * Note that this is a bad way of doing things; quotes in the HTML
+     * (rather than the text) will get mangled.
+     */
+    node.innerHTML = jsprettify.prettifyStr(text);
+  }
+</script>
+<body>
+  <div id="prettified">
+    <p>
+      &quot;This text,&quot; he---haltingly---said,
+      &quot;is &apos;prettified.&apos;&quot;
+    <p>
+      It&apos;s on pp.&nbsp;66--68.
+    <p>
+      &quot;&apos;&apos;&quot;
+  </div>
