@@ -12,9 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+if (typeof goog != 'undefined' && typeof goog.provide == 'function') {
 goog.provide('prettify.prettify');
 goog.provide('prettify.entities');
+}
 
+var prettify = prettify || {};
 
 /**
  * This object contains some common typographical HTML entities.
