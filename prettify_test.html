@@ -71,4 +71,9 @@ limitations under the License.
     assertPrettifiedEquals('Word ' + prettify.entities.ldquo + 'word' +
         prettify.entities.rdquo + ' word.', 'Word "word" word.');
   }
+  function testPrettifiesQuotesInQuotes() {
+    assertPrettifiedEquals(prettify.entities.ldquo +
+        prettify.entities.lsquo + 'Word quoted' + prettify.entities.rsquo +
+        ' quoted.' + prettify.entities.rdquo, '"\'Word quoted\' quoted."');
+  }
 </script>
