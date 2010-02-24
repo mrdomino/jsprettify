@@ -30,7 +30,7 @@ jsprettify.entities = {
   rsquo:  '&#8217;',
   ldquo:  '&#8220;',
   rdquo:  '&#8221;',
-  hellip: '&#8230;',
+  hellip: '&#8230;'
 };
 
 
