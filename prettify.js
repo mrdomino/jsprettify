@@ -38,7 +38,7 @@ prettify.prettify = function(text) {
     ['\\.\\.\\.', prettify.entities.hellip],
     ["(^|[ \"])'", '$1' + prettify.entities.lsquo],
     ['(^| )"', '$1' + prettify.entities.ldquo],
-    ["'($| )", prettify.entities.rsquo + '$1'],
+    ["'($|[ \"])", prettify.entities.rsquo + '$1'],
     ['"($| )', prettify.entities.rdquo + '$1']
   ];
   goog.array.forEach(subs, function(arr) {
