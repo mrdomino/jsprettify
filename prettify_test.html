@@ -19,69 +19,70 @@ limitations under the License.
 <script src="deps.js"></script>
 <script>
   goog.require('goog.testing.jsunit');
-  goog.require('prettify.entities');
-  goog.require('prettify.prettify');
+  goog.require('jsprettify.entities');
+  goog.require('jsprettify.prettify');
 </script>
 <body>
 <script>
   // Helper function for prettified output.
   function assertPrettifiedEquals(expected, input) {
-    assertEquals(expected, prettify.prettify(input));
+    assertEquals(expected, jsprettify.prettify(input));
   }
   function testPreservesPrettyInput() {
     var myString = 'A very pretty string.';
     assertPrettifiedEquals(myString, myString);
   }
   function testPrettifiesEnDashes() {
-    assertPrettifiedEquals(prettify.entities.endash, '--');
-    assertPrettifiedEquals('Test ' + prettify.entities.endash +' text.',
+    assertPrettifiedEquals(jsprettify.entities.endash, '--');
+    assertPrettifiedEquals('Test ' + jsprettify.entities.endash +' text.',
         'Test -- text.');
-    assertPrettifiedEquals(prettify.entities.endash + ' ' +
-        prettify.entities.endash, '-- --');
+    assertPrettifiedEquals(jsprettify.entities.endash + ' ' +
+        jsprettify.entities.endash, '-- --');
   }
   function testPrettifiesEmDashes() {
-    assertPrettifiedEquals(prettify.entities.emdash, '---');
-    assertPrettifiedEquals('Test ' + prettify.entities.emdash + ' text.',
+    assertPrettifiedEquals(jsprettify.entities.emdash, '---');
+    assertPrettifiedEquals('Test ' + jsprettify.entities.emdash + ' text.',
         'Test --- text.');
-    assertPrettifiedEquals(prettify.entities.emdash + ' ' +
-        prettify.entities.emdash, '--- ---');
+    assertPrettifiedEquals(jsprettify.entities.emdash + ' ' +
+        jsprettify.entities.emdash, '--- ---');
   }
   function testPrettifiesEmAndEnDashes() {
-    var em = prettify.entities.emdash;
-    var en = prettify.entities.endash;
+    var em = jsprettify.entities.emdash;
+    var en = jsprettify.entities.endash;
     var inputStr = '--- -- --- -- -- ---';
     var expected = [em, en,em, en,en,em].join(' ');
     assertPrettifiedEquals(expected, inputStr);
   }
   function testPrettifiesEllipses() {
-    assertPrettifiedEquals('Test' + prettify.entities.hellip + ' ' +
-        prettify.entities.hellip + 'Test.', 'Test... ...Test.');
+    assertPrettifiedEquals('Test' + jsprettify.entities.hellip + ' ' +
+        jsprettify.entities.hellip + 'Test.', 'Test... ...Test.');
   }
   function testPrettifiesQuotesAtStartOfLine() {
-    assertPrettifiedEquals(prettify.entities.lsquo + 'word.', "'word.");
-    assertPrettifiedEquals(prettify.entities.ldquo + 'word.', '"word.');
+    assertPrettifiedEquals(jsprettify.entities.lsquo + 'word.', "'word.");
+    assertPrettifiedEquals(jsprettify.entities.ldquo + 'word.', '"word.');
   }
   function testPrettifiesQuotesAtEndOfLine() {
-    assertPrettifiedEquals('word.' + prettify.entities.rsquo, "word.'");
-    assertPrettifiedEquals('word.' + prettify.entities.rdquo, 'word."');
+    assertPrettifiedEquals('word.' + jsprettify.entities.rsquo, "word.'");
+    assertPrettifiedEquals('word.' + jsprettify.entities.rdquo, 'word."');
   }
   function testPrettifiesQuotesWithWhitespace() {
-    assertPrettifiedEquals('Word\t' + prettify.entities.lsquo + 'word' +
-        prettify.entities.rsquo + '\nword.', "Word\t'word'\nword.");
-    assertPrettifiedEquals('Word\t' + prettify.entities.ldquo + 'word' +
-        prettify.entities.rdquo + '\nword.', 'Word\t"word"\nword.');
+    assertPrettifiedEquals('Word\t' + jsprettify.entities.lsquo + 'word' +
+        jsprettify.entities.rsquo + '\nword.', "Word\t'word'\nword.");
+    assertPrettifiedEquals('Word\t' + jsprettify.entities.ldquo + 'word' +
+        jsprettify.entities.rdquo + '\nword.', 'Word\t"word"\nword.');
   }
   function testPrettifiesQuotesInQuotes() {
-    assertPrettifiedEquals(prettify.entities.ldquo +
-        prettify.entities.lsquo + 'Word quoted' + prettify.entities.rsquo +
-        prettify.entities.rdquo, '"\'Word quoted\'"');
+    assertPrettifiedEquals(jsprettify.entities.ldquo +
+        jsprettify.entities.lsquo + 'Word quoted' +
+        jsprettify.entities.rsquo + jsprettify.entities.rdquo,
+        '"\'Word quoted\'"');
   }
   function testPrettifiesQuotesInContractions() {
-    assertPrettifiedEquals('I' + prettify.entities.rsquo + 'm', "I'm");
+    assertPrettifiedEquals('I' + jsprettify.entities.rsquo + 'm', "I'm");
   }
   function testPrettifiesQuotesThatAreEmpty() {
-    assertPrettifiedEquals(prettify.entities.ldquo +
-        prettify.entities.lsquo + prettify.entities.rsquo +
-        prettify.entities.rdquo, '"\'\'"');
+    assertPrettifiedEquals(jsprettify.entities.ldquo +
+        jsprettify.entities.lsquo + jsprettify.entities.rsquo +
+        jsprettify.entities.rdquo, '"\'\'"');
   }
 </script>

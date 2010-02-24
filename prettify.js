@@ -13,17 +13,17 @@
 // limitations under the License.
 
 if (typeof goog != 'undefined') {
-goog.provide('prettify.prettify');
-goog.provide('prettify.entities');
+goog.provide('jsprettify.prettify');
+goog.provide('jsprettify.entities');
 }
 
-var prettify = prettify || {};
+var jsprettify = jsprettify || {};
 
 /**
  * This object contains some common typographical HTML entities.
  * @type {Object.<string,string>}
  */
-prettify.entities = {
+jsprettify.entities = {
   endash: '&#8211;',
   emdash: '&#8212;',
   lsquo:  '&#8216;',
@@ -40,7 +40,7 @@ prettify.entities = {
  * @param {string} text Text to prettify.
  * @return {string} Prettified text.
  */
-prettify.prettify = function(text) {
+jsprettify.prettify = function(text) {
   /**
    * This array-of-arrays holds entries consisting of patterns and
    * substitutions in the order that they are to be applied. We need to
@@ -49,13 +49,13 @@ prettify.prettify = function(text) {
    * @type {Array.<Array.<string>>}
    */
   var subs = [
-    ['---', prettify.entities.emdash],
-    ['--', prettify.entities.endash],
-    ['\\.\\.\\.', prettify.entities.hellip],
-    ["(^|[\\s\"])'", '$1' + prettify.entities.lsquo],
-    ['(^|\\s)"', '$1' + prettify.entities.ldquo],
-    ["'($|[\\s\"])?", prettify.entities.rsquo + '$1'],
-    ['"($|\\s)', prettify.entities.rdquo + '$1']
+    ['---', jsprettify.entities.emdash],
+    ['--', jsprettify.entities.endash],
+    ['\\.\\.\\.', jsprettify.entities.hellip],
+    ["(^|[\\s\"])'", '$1' + jsprettify.entities.lsquo],
+    ['(^|\\s)"', '$1' + jsprettify.entities.ldquo],
+    ["'($|[\\s\"])?", jsprettify.entities.rsquo + '$1'],
+    ['"($|\\s)', jsprettify.entities.rdquo + '$1']
   ];
   for (var i = 0; i < subs.length; i++) {
     var arr = subs[i];
