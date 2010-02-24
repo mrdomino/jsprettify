@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-if (typeof goog != 'undefined' && typeof goog.provide == 'function') {
+if (typeof goog != 'undefined') {
 goog.provide('prettify.prettify');
 goog.provide('prettify.entities');
 }
