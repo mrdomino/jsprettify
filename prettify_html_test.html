@@ -18,10 +18,33 @@ limitations under the License.
 <script src="../closure-library/closure/goog/base.js"></script>
 <script src="deps.js"></script>
 <script>
+  goog.require('goog.dom');
   goog.require('goog.testing.jsunit');
   goog.require('jsprettify.entities');
   goog.require('jsprettify.prettifyHtml');
 </script>
 <body>
 <script>
+  function assertPrettifiedEquals(expected, input) {
+    assertEquals(goog.dom.getTextContent(expected),
+        goog.dom.getTextContent(jsprettify.prettifyHtml(input)));
+  }
+  function testPrettifiesNonDestructively() {
+    var myNode = goog.dom.$dom('p', null, 'Test---test.');
+    var cloneNode = myNode.cloneNode(true);
+    var prettified = jsprettify.prettifyHtml(cloneNode);
+    assertEquals(goog.dom.getTextContent(myNode),
+        goog.dom.getTextContent(cloneNode));
+  }
+  function testPrettifiesTextNodes() {
+    var myTextNode = goog.dom.createTextNode('Test---test.');
+    var prettyTextNode = goog.dom.createTextNode(jsprettify.prettifyStr('Test---test.'));
+    assertPrettifiedEquals(prettyTextNode, myTextNode);
+  }
+  function testPrettifiesParagraphNodes() {
+    var myNode = goog.dom.$dom('p', null, 'Test---test.');
+    var prettyNode = goog.dom.$dom('p', null,
+        jsprettify.prettifyStr('Test---test.'));
+    assertPrettifiedEquals(prettyNode, myNode);
+  }
 </script>

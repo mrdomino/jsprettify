@@ -66,3 +66,10 @@ jsprettify.prettifyStr = function(text) {
   };
   return text;
 };
+
+jsprettify.prettifyHtml = function(e) {
+  var ret = e.cloneNode(true);
+  var text = goog.dom.getTextContent(ret);
+  goog.dom.setTextContent(ret, jsprettify.prettifyStr(text));
+  return ret;
+};
