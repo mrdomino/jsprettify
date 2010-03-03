@@ -82,12 +82,9 @@ jsprettify.prettifyStr = function(text) {
  * @return {Node|null} Prettified version of the passed node.
  */
 jsprettify.prettifyHtml = function(e, opt_args) {
-  var uglyTags = [];
-  var uglyClass = "";
-  if (opt_args) {
-    uglyTags = opt_args['uglyTags'] || uglyTags;
-    uglyClass = opt_args['uglyClass'] || uglyClass;
-  }
+  var args = opt_args || {};
+  var uglyTags = args['uglyTags'] || [];
+  var uglyClass = args['uglyClass'] || "";
   if (e == null) {
     return null;
   }
