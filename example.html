@@ -17,7 +17,11 @@ limitations under the License.
 <title>Prettify Example</title>
 <script src="prettify.js"></script>
 <script>
-  jsprettify.prettifyHtml(document.getElementById('prettified'));
+  window.onload = function() {
+    var toPrettify = document.getElementById('prettified');
+    var prettified = jsprettify.prettifyHtml(toPrettify);
+    toPrettify.innerHTML = prettified.innerHTML;
+  }
 </script>
 <body>
   <div id="prettified">
