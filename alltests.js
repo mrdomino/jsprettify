@@ -12,4 +12,4 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-var _allTests = ["prettify_str_test.html","prettify_html_test.html"];
+var _allTests = ["prettify_str_test.html","prettify_html_test.html","prettify_html_opts_test.html"];
