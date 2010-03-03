@@ -16,6 +16,7 @@ if (typeof goog != 'undefined') {
 goog.provide('jsprettify.entities');
 goog.provide('jsprettify.prettifyHtml');
 goog.provide('jsprettify.prettifyStr');
+goog.provide('window.prettify');
 }
 
 var jsprettify = jsprettify || {};
@@ -106,4 +107,10 @@ jsprettify.prettifyHtml = function(e, opt_args) {
     }
   }
   return ret;
+};
+
+/**
+ * Auto-prettify everything with classname 'prettify' in a document.
+ */
+window.prettify = function() {
 };
