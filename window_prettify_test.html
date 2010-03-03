@@ -24,12 +24,25 @@ limitations under the License.
   goog.require('window.prettify');
 </script>
 <body>
-<p class="prettify">"Pretty."</p>
+<div class="prettify">
+  <p>"Pretty."</p>
+  <code>"Ugly."</code>
+  <pre>"Ugly."</pre>
+  <p class="keepugly">"Ugly."</p>
+</div>
 <script>
   function testPrettifiesDocFragments() {
-    var ugly = goog.dom.$$('*', 'prettify')[0].cloneNode(true);
+    var selectPretty = function() { return goog.dom.$$('*', 'prettify')[0].firstChild; };
+    var ugly = selectPretty().cloneNode(true);
     window.prettify();
-    var pretty = goog.dom.$$('*', 'prettify')[0];
+    var pretty = selectPretty();
     assertEquals(jsprettify.prettifyHtml(ugly).innerHTML, pretty.innerHTML);
+  }
+  function testKeepsCodeBlocksUgly() {
+    var selectUgly = function() { return goog.dom.$$('code')[0]; };
+    var ugly = selectUgly().cloneNode(true);
+    window.prettify();
+    var pretty = selectUgly();
+    assertEquals(ugly.innerHTML, pretty.innerHTML);
   }
 </script>
