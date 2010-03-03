@@ -47,4 +47,13 @@ limitations under the License.
         jsprettify.prettifyStr('Test---test.'));
     assertPrettifiedEquals(prettyNode, myNode);
   }
+  function testPrettifiesNodeTrees() {
+    var myTree = goog.dom.$dom('div', null,
+        goog.dom.$dom('p', null, '"Prettified."'),
+        goog.dom.$dom('p', null, '"Prettified."'));
+    var prettyTree = goog.dom.$dom('div', null,
+        goog.dom.$dom('p', null, jsprettify.prettifyStr('"Prettified."')),
+        goog.dom.$dom('p', null, jsprettify.prettifyStr('"Prettified."')));
+    assertPrettifiedEquals(prettyTree, myTree);
+  }
 </script>
