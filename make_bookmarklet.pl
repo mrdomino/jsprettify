@@ -15,7 +15,7 @@ $src =~ s{^// ?javascript:.+\n}{};
 my $bookmarklet = $src;
 
 for ($bookmarklet) {
-    s{^\s*//.+\n}{}gm;  # Kill comments.
+    s{^\s*//.*\n}{}gm;  # Kill comments.
     s{\t}{ }gm;         # Tabs to spaces
     s{[ ]{2,}}{ }gm;    # Space runs to one space
     s{^\s+}{}gm;        # Kill line-leading whitespace
