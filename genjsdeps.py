@@ -14,12 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
+from os import chdir, sep
+from subprocess import call, PIPE
 
 # Closure library directory relative to project root.
-closuredir = '../closure-library/closure/'
+closuredir = sep.join(['..', 'closure-library', 'closure'])
 # Project directory relative to the location of base.js (see below.)
-projdir = '../../../jsprettify/'
+projdir = sep.join(['..', '..', '..', 'jsprettify'])
 
 # Per erik.arvidsson@gmail.com:
 # > It is a bit tricky to get the paths correct but I found that running
@@ -27,5 +28,7 @@ projdir = '../../../jsprettify/'
 # > Something like:
 # >
 # > ../bin/calcdeps.py -o deps -p ../../../test/ > ../../../test/deps.js
-os.chdir(closuredir + 'goog/')
-os.system('../bin/calcdeps.py -o deps -p ' + projdir + ' > ' + projdir + 'deps.js')
+chdir(sep.join([closuredir, 'goog']))
+calcdeps = sep.join(['..', 'bin', 'calcdeps.py'])
+depsjs = open(sep.join([projdir, 'deps.js']), 'w')
+call([calcdeps, '-o', 'deps', '-p', projdir], stdout=depsjs, stderr=PIPE)
