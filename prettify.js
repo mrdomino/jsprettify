@@ -53,11 +53,11 @@ jsprettify.prettifyStr = function(text) {
    * @type {Array.<Array.<string>>}
    */
   var subs = [
-    ['---', e.emdash],
-    ['--', e.endash],
     ['\\.\\.\\.', e.hellip],
     ["(^|[\\s\"])'", '$1' + e.lsquo],
-    ['(^|\\s)"', '$1' + e.ldquo],
+    ['(^|[\\s-])"', '$1' + e.ldquo],
+    ['---', e.emdash],
+    ['--', e.endash],
     ["'($|[\\s\"])?", e.rsquo + '$1'],
     ['"($|[\\s.,;:?!])', e.rdquo + '$1']
   ];
