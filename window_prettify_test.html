@@ -24,12 +24,7 @@ limitations under the License.
   goog.require('window.prettify');
 </script>
 <body>
-<div class="prettify">
-  <p>"Pretty."</p>
-  <code>"Ugly."</code>
-  <pre>"Ugly."</pre>
-  <p class="keepugly">"Ugly."</p>
-</div>
+<div class="prettify"><p>"Pretty."</p><code>"Ugly."</code><pre>"Ugly."</pre><p class="keepugly">"Ugly."</p></div>
 <script>
   function testPrettifiesDocFragments() {
     var selectPretty = function() { return goog.dom.$$('*', 'prettify')[0].firstChild; };
