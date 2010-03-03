@@ -57,7 +57,7 @@ jsprettify.prettifyStr = function(text) {
     ["(^|[\\s\"])'", '$1' + e.lsquo],
     ['(^|\\s)"', '$1' + e.ldquo],
     ["'($|[\\s\"])?", e.rsquo + '$1'],
-    ['"($|\\s)', e.rdquo + '$1']
+    ['"($|[\\s.,;:?!])', e.rdquo + '$1']
   ];
   for (var i = 0; i < subs.length; i++) {
     var arr = subs[i];

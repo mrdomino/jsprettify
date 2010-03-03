@@ -79,4 +79,12 @@ limitations under the License.
   function testPrettifiesQuotesThatAreEmpty() {
     assertPrettifiedEquals(e.ldquo + e.lsquo + e.rsquo + e.rdquo, '"\'\'"');
   }
+  function testPrettifiesDoubleQuoteBeforePunctuation() {
+    assertPrettifiedEquals(e.ldquo + 'word' + e.rdquo + '.', '"word".');
+    assertPrettifiedEquals(e.ldquo + 'word' + e.rdquo + ',', '"word",');
+    assertPrettifiedEquals(e.ldquo + 'word' + e.rdquo + ';', '"word";');
+    assertPrettifiedEquals(e.ldquo + 'word' + e.rdquo + ':', '"word":');
+    assertPrettifiedEquals(e.ldquo + 'word' + e.rdquo + '?', '"word"?');
+    assertPrettifiedEquals(e.ldquo + 'word' + e.rdquo + '!', '"word"!');
+  }
 </script>
