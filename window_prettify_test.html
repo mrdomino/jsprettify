@@ -20,8 +20,16 @@ limitations under the License.
 <script>
   goog.require('goog.dom');
   goog.require('goog.testing.jsunit');
+  goog.require('jsprettify.prettifyHtml');
   goog.require('window.prettify');
 </script>
 <body>
+<p class="prettify">"Pretty."</p>
 <script>
+  function testPrettifiesDocFragments() {
+    var ugly = goog.dom.$$('*', 'prettify')[0].cloneNode(true);
+    window.prettify();
+    var pretty = goog.dom.$$('*', 'prettify')[0];
+    assertEquals(jsprettify.prettifyHtml(ugly).innerHTML, pretty.innerHTML);
+  }
 </script>

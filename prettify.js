@@ -113,4 +113,9 @@ jsprettify.prettifyHtml = function(e, opt_args) {
  * Auto-prettify everything with classname 'prettify' in a document.
  */
 window.prettify = function() {
+  var es = document.getElementsByClassName('prettify');
+  var opts = {};
+  for (var i = 0; i < es.length; i++) {
+    document.body.replaceChild(jsprettify.prettifyHtml(es[i], opts), es[i]);
+  }
 };
