@@ -75,15 +75,18 @@ jsprettify.prettifyStr = function(text) {
  * This function operates nondestructively -- a prettified HTML fragment is
  * returned, and can replace the existing one to prettify a document.
  * @param {Node|null} e Node to start prettifying.
- * @param {uglyTags: Array.<string>} opt_args Optional arguments to customize
- *     the behavior of the function. 'uglyTags' is an array of tagnames to not
- *     prettify.
+ * @param {uglyTags: Array.<string>, uglyClass: string} opt_args Optional
+ *     arguments to customize the behavior of the function. 'uglyTags' is an
+ *     array of tagnames not to prettify. 'uglyClass' is a string consisting
+ *     of the class not to prettify.
  * @return {Node|null} Prettified version of the passed node.
  */
 jsprettify.prettifyHtml = function(e, opt_args) {
   var uglyTags = [];
+  var uglyClass = "";
   if (opt_args) {
     uglyTags = opt_args['uglyTags'] || uglyTags;
+    uglyClass = opt_args['uglyClass'] || uglyClass;
   }
   if (e == null) {
     return null;
@@ -91,7 +94,8 @@ jsprettify.prettifyHtml = function(e, opt_args) {
   var ret = e.cloneNode(true);
   if (e.nodeType == Node.TEXT_NODE) {
     ret.textContent = jsprettify.prettifyStr(ret.textContent);
-  } else if (! goog.array.contains(uglyTags, e.nodeName.toLowerCase())) {
+  } else if (! goog.array.contains(uglyTags, e.nodeName.toLowerCase()) &&
+      ! (e.className && e.className == uglyClass)) {
     var curChildren = ret.childNodes;
     for (var i = 0; i < curChildren.length; i++) {
       ret.replaceChild(jsprettify.prettifyHtml(curChildren[i], opt_args),
