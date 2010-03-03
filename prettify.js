@@ -16,6 +16,8 @@ if (typeof goog != 'undefined') {
 goog.provide('jsprettify.entities');
 goog.provide('jsprettify.prettifyHtml');
 goog.provide('jsprettify.prettifyStr');
+
+goog.require('goog.dom');
 }
 
 var jsprettify = jsprettify || {};
@@ -90,4 +92,12 @@ jsprettify.prettifyHtml = function(e) {
     }
   }
   return ret;
+};
+
+window['prettify'] = function() {
+  var es = goog.dom.$$('*', 'prettify');
+  for (var i = 0; i < es.length; i++) {
+    var pretty = jsprettify.prettifyHtml(es[i]);
+    goog.dom.replaceNode(pretty, es[i]);
+  }
 };
