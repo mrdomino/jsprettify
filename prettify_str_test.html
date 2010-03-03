@@ -87,4 +87,8 @@ limitations under the License.
     assertPrettifiedEquals(e.ldquo + 'word' + e.rdquo + '?', '"word"?');
     assertPrettifiedEquals(e.ldquo + 'word' + e.rdquo + '!', '"word"!');
   }
+  function testPrettifiesQuotesAfterEmDashes() {
+    assertPrettifiedEquals('Test' + e.emdash + e.ldquo + 'word' + e.rdquo,
+        'Test---"word"');
+  }
 </script>
