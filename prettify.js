@@ -14,6 +14,7 @@
 
 if (typeof goog != 'undefined') {
 goog.provide('jsprettify.entities');
+goog.provide('jsprettify.prettifyHtml');
 goog.provide('jsprettify.prettifyStr');
 }
 
@@ -24,13 +25,13 @@ var jsprettify = jsprettify || {};
  * @type {Object.<string,string>}
  */
 jsprettify.entities = {
-  endash: '&#8211;',
-  emdash: '&#8212;',
-  lsquo:  '&#8216;',
-  rsquo:  '&#8217;',
-  ldquo:  '&#8220;',
-  rdquo:  '&#8221;',
-  hellip: '&#8230;'
+  endash: '\u2013',
+  emdash: '\u2014',
+  lsquo:  '\u2018',
+  rsquo:  '\u2019',
+  ldquo:  '\u201c',
+  rdquo:  '\u201d',
+  hellip: '\u2026'
 };
 
 
@@ -65,4 +66,21 @@ jsprettify.prettifyStr = function(text) {
     text = text.replace(re, sub);
   };
   return text;
+};
+
+jsprettify.prettifyHtml = function(e) {
+  if (e == null) {
+    return null;
+  }
+  var ret = e.cloneNode(true);
+  if (e.nodeType == Node.TEXT_NODE) {
+    ret.textContent = jsprettify.prettifyStr(ret.textContent);
+  } else {
+    var curChildren = ret.childNodes;
+    for (var i = 0; i < curChildren.length; i++) {
+      ret.replaceChild(jsprettify.prettifyHtml(curChildren[i]),
+          curChildren[i]);
+    }
+  }
+  return ret;
 };
