@@ -72,7 +72,14 @@ jsprettify.prettifyHtml = function(e) {
     return null;
   }
   var ret = e.cloneNode(true);
-  var text = goog.dom.getTextContent(ret);
-  goog.dom.setTextContent(ret, jsprettify.prettifyStr(text));
+  if (e.nodeType == Node.TEXT_NODE) {
+    ret.textContent = jsprettify.prettifyStr(ret.textContent);
+  } else {
+    var curChildren = ret.childNodes;
+    for (var i = 0; i < curChildren.length; i++) {
+      ret.replaceChild(jsprettify.prettifyHtml(curChildren[i]),
+          curChildren[i]);
+    }
+  }
   return ret;
 };
