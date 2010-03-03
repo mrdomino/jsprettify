@@ -36,8 +36,8 @@ jsprettify.entities = {
 
 
 /**
- * Prettifies strings by replacing ASCII shorthand with the HTML
- * entities for their proper typographical symbols.
+ * Prettifies strings by replacing ASCII shorthand with proper typographical
+ * symbols.
  * @param {string} text Text to prettify.
  * @return {string} Prettified text.
  */
@@ -68,6 +68,13 @@ jsprettify.prettifyStr = function(text) {
   return text;
 };
 
+/**
+ * Prettifies HTML Nodes by recursively prettifying their child text nodes.
+ * This function operates nondestructively -- a prettified HTML fragment is
+ * returned, and can replace the existing one to prettify a document.
+ * @param {Node|null} e Node to start prettifying.
+ * @return {Node|null} Prettified version of the passed node.
+ */
 jsprettify.prettifyHtml = function(e) {
   if (e == null) {
     return null;
