@@ -30,5 +30,5 @@ projdir = sep.join(['..', '..', '..', 'jsprettify'])
 # > ../bin/calcdeps.py -o deps -p ../../../test/ > ../../../test/deps.js
 chdir(sep.join([closuredir, 'goog']))
 calcdeps = sep.join(['..', 'bin', 'calcdeps.py'])
-depsjs = open(sep.join([projdir, 'deps.js']), 'w')
-call([calcdeps, '-o', 'deps', '-p', projdir], stdout=depsjs, stderr=PIPE)
+with open(sep.join([projdir, 'deps.js']), 'w') as depsjs:
+    call([calcdeps, '-o', 'deps', '-p', projdir], stdout=depsjs, stderr=PIPE)
