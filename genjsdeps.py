@@ -16,7 +16,9 @@
 
 import os
 
+# Closure library directory relative to project root.
 closuredir = '../closure-library/closure/'
+# Project directory relative to the location of base.js (see below.)
 projdir = '../../../jsprettify/'
 
 # Per erik.arvidsson@gmail.com:
