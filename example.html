@@ -3,13 +3,9 @@
 <script src="prettify.js"></script>
 <script>
   window.onload = function() {
-    var node = document.getElementById('prettified');
-    var text = node.innerHTML;
-    /*
-     * Note that this is a bad way of doing things; quotes in the HTML
-     * (rather than the text) will get mangled.
-     */
-    node.innerHTML = jsprettify.prettifyStr(text);
+    var toPrettify = document.getElementById('prettified');
+    var prettified = jsprettify.prettifyHtml(toPrettify);
+    document.body.replaceChild(prettified, toPrettify);
   }
 </script>
 <body>
