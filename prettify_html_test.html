@@ -1,0 +1,62 @@
+<!doctype html>
+<!--
+Copyright 2010 Steven Dee. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<title>Prettify Unit Tests</title>
+<script src="../closure-library/closure/goog/base.js"></script>
+<script src="deps.js"></script>
+<script>
+  goog.require('goog.dom');
+  goog.require('goog.testing.jsunit');
+  goog.require('jsprettify.entities');
+  goog.require('jsprettify.prettifyHtml');
+</script>
+<body>
+<script>
+  function assertPrettifiedEquals(expected, input) {
+    assertEquals(expected.innerHTML,
+        jsprettify.prettifyHtml(input).innerHTML);
+  }
+  function testPrettifiesNonDestructively() {
+    var myNode = goog.dom.$dom('p', null, 'Test---test.');
+    var cloneNode = myNode.cloneNode(true);
+    var prettified = jsprettify.prettifyHtml(cloneNode);
+    assertEquals(goog.dom.getTextContent(myNode),
+        goog.dom.getTextContent(cloneNode));
+  }
+  function testPrettifiesTextNodes() {
+    var myTextNode = goog.dom.createTextNode('Test---test.');
+    var prettyTextNode = goog.dom.createTextNode(jsprettify.prettifyStr('Test---test.'));
+    assertPrettifiedEquals(prettyTextNode, myTextNode);
+  }
+  function testPrettifiesParagraphNodes() {
+    var myNode = goog.dom.$dom('p', null, 'Test---test.');
+    var prettyNode = goog.dom.$dom('p', null,
+        jsprettify.prettifyStr('Test---test.'));
+    assertPrettifiedEquals(prettyNode, myNode);
+  }
+  function testPrettifiesNodeTrees() {
+    var myTree = goog.dom.$dom('div', null,
+        goog.dom.$dom('p', null, '"Prettified."'),
+        goog.dom.$dom('p', null, '"Prettified."'));
+    var prettyTree = goog.dom.$dom('div', null,
+        goog.dom.$dom('p', null, jsprettify.prettifyStr('"Prettified."')),
+        goog.dom.$dom('p', null, jsprettify.prettifyStr('"Prettified."')));
+    assertPrettifiedEquals(prettyTree, myTree);
+  }
+  function testAcceptsNullArgument() {
+    assertEquals(null, jsprettify.prettifyHtml(null));
+  }
+</script>

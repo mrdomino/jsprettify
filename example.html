@@ -1,0 +1,20 @@
+<!doctype html>
+<title>Prettify Example</title>
+<script src="prettify.js"></script>
+<script>
+  window.onload = function() {
+    var toPrettify = document.getElementById('prettified');
+    var prettified = jsprettify.prettifyHtml(toPrettify);
+    document.body.replaceChild(prettified, toPrettify);
+  }
+</script>
+<body>
+  <div id="prettified">
+    <p>
+      &quot;This text,&quot; he---haltingly---said,
+      &quot;is &apos;prettified.&apos;&quot;
+    <p>
+      It&apos;s on pp.&nbsp;66--68.
+    <p>
+      &quot;&apos;&apos;&quot;
+  </div>
