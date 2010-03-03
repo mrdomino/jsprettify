@@ -20,7 +20,7 @@ limitations under the License.
   window.onload = function() {
     var toPrettify = document.getElementById('prettified');
     var prettified = jsprettify.prettifyHtml(toPrettify);
-    toPrettify.innerHTML = prettified.innerHTML;
+    document.body.replaceChild(prettified, toPrettify);
   }
 </script>
 <body>
