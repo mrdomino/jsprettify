@@ -1,15 +1,11 @@
 <!doctype html>
 <title>Prettify Example</title>
-<script src="prettify.js"></script>
+<script src="prettify-comp.js"></script>
 <script>
-  window.onload = function() {
-    var toPrettify = document.getElementById('prettified');
-    var prettified = jsprettify.prettifyHtml(toPrettify);
-    document.body.replaceChild(prettified, toPrettify);
-  }
+  window.onload = window.prettify;
 </script>
 <body>
-  <div id="prettified">
+  <div class="prettify">
     <p>
       &quot;This text,&quot; he---haltingly---said,
       &quot;is &apos;prettified.&apos;&quot;
