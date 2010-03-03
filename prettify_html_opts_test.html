@@ -29,7 +29,7 @@ limitations under the License.
     assertEquals(expected.innerHTML,
         jsprettify.prettifyHtml(input, opt_args).innerHTML);
   }
-  function testDoesNotPrettifyTagsToBeKeptUgly() {
+  function testDoesNotPrettifyUglyTags() {
     var opts = {'uglyTags': ['code', 'pre']};
     var pretty = jsprettify.prettifyStr('"Pretty"');
     var input = goog.dom.$dom('div', null,
@@ -38,6 +38,17 @@ limitations under the License.
     var expected = goog.dom.$dom('div', null,
         pretty, goog.dom.$dom('code', null, '"Ugly"'),
         goog.dom.$dom('pre', null, '"Ugly"'));
+    assertPrettifiedEquals(expected, input, opts);
+  }
+  function testDoesNotPrettifyTagsToBeKeptUgly() {
+    var opts = {'uglyClass': 'keepugly'};
+    var pretty = jsprettify.prettifyStr('"Pretty"');
+    var input = goog.dom.$dom('div', null,
+        goog.dom.$dom('p', null, '"Pretty"'),
+        goog.dom.$dom('p', {'class': 'keepugly'}, '"Ugly"'));
+    var expected = goog.dom.$dom('div', null,
+        goog.dom.$dom('p', null, pretty),
+        goog.dom.$dom('p', {'class': 'keepugly'}, '"Ugly"'));
     assertPrettifiedEquals(expected, input, opts);
   }
 </script>
