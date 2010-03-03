@@ -98,6 +98,6 @@ window['prettify'] = function() {
   var es = goog.dom.$$('*', 'prettify');
   for (var i = 0; i < es.length; i++) {
     var pretty = jsprettify.prettifyHtml(es[i]);
-    document.body.replaceChild(pretty, es[i]);
+    goog.dom.replaceNode(pretty, es[i]);
   }
 };
