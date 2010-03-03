@@ -85,13 +85,21 @@ jsprettify.prettifyHtml = function(e, opt_args) {
   var args = opt_args || {};
   var uglyTags = args['uglyTags'] || [];
   var uglyClass = args['uglyClass'] || "";
+  var contains = function(arr, obj) {
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] == obj) {
+        return true;
+      }
+    }
+    return false;
+  };
   if (e == null) {
     return null;
   }
   var ret = e.cloneNode(true);
   if (e.nodeType == Node.TEXT_NODE) {
     ret.textContent = jsprettify.prettifyStr(ret.textContent);
-  } else if (! goog.array.contains(uglyTags, e.nodeName.toLowerCase()) &&
+  } else if (! contains(uglyTags, e.nodeName.toLowerCase()) &&
       ! (e.className && e.className == uglyClass)) {
     var curChildren = ret.childNodes;
     for (var i = 0; i < curChildren.length; i++) {
