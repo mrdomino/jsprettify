@@ -114,7 +114,7 @@ jsprettify.prettifyHtml = function(e, opt_args) {
  */
 window.prettify = function() {
   var es = document.getElementsByClassName('prettify');
-  var opts = {'uglyTags': ['code', 'pre']};
+  var opts = {'uglyTags': ['code', 'pre'], 'uglyClass': 'keepugly'};
   for (var i = 0; i < es.length; i++) {
     document.body.replaceChild(jsprettify.prettifyHtml(es[i], opts), es[i]);
   }
