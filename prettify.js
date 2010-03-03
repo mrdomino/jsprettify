@@ -114,7 +114,7 @@ jsprettify.prettifyHtml = function(e, opt_args) {
  * be used in e.g. a window.onload function to automatically prettify all text
  * when the window has loaded.
  */
-window.prettify = function() {
+window['prettify'] = function() {
   var es = document.getElementsByClassName('prettify');
   var opts = {'uglyTags': ['code', 'pre'], 'uglyClass': 'keepugly'};
   for (var i = 0; i < es.length; i++) {
