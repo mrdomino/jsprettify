@@ -65,4 +65,11 @@ limitations under the License.
     var pretty = selectUgly();
     assertEquals(ugly.innerHTML, pretty.innerHTML);
   }
+  function testKeepsUglyClassUgly() {
+    var selectUgly = function() { return goog.dom.$$('*', 'keepugly')[0]; };
+    var ugly = selectUgly().cloneNode(true);
+    window.prettify();
+    var pretty = selectUgly();
+    assertEquals(ugly.innerHTML, pretty.innerHTML);
+  }
 </script>
