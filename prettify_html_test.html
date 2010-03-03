@@ -26,8 +26,8 @@ limitations under the License.
 <body>
 <script>
   function assertPrettifiedEquals(expected, input) {
-    assertEquals(goog.dom.getTextContent(expected),
-        goog.dom.getTextContent(jsprettify.prettifyHtml(input)));
+    assertEquals(expected.innerHTML,
+        jsprettify.prettifyHtml(input).innerHTML);
   }
   function testPrettifiesNonDestructively() {
     var myNode = goog.dom.$dom('p', null, 'Test---test.');
