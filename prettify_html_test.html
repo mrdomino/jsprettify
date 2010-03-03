@@ -56,4 +56,7 @@ limitations under the License.
         goog.dom.$dom('p', null, jsprettify.prettifyStr('"Prettified."')));
     assertPrettifiedEquals(prettyTree, myTree);
   }
+  function testAcceptsNullArgument() {
+    assertEquals(null, jsprettify.prettifyHtml(null));
+  }
 </script>
