@@ -20,9 +20,15 @@ from subprocess import call
 compiler_jar = sep.join(['..', 'closure-compiler', 'compiler.jar'])
 closure_dir = sep.join(['..', 'closure-library', 'closure'])
 calcdeps = sep.join([closure_dir, 'bin', 'calcdeps.py'])
-output_file = 'prettify-comp.js'
-input_file = 'prettify.js'
+targets = [{'src': 'prettify.js', 'out': 'prettify-comp.js'},
+           {'src': 'bookmarklet.js', 'out': 'bookmarklet-comp.js',
+            'ext': 'prettify.js'}]
 
-call([calcdeps, '-o', 'compiled', '--compiler_jar=' + compiler_jar, '-p',
-    closure_dir, '-p', '.', '--output_file=' + output_file, '-i', input_file,
-    '-f', '--compilation_level', '-f', 'ADVANCED_OPTIMIZATIONS'])
+for t in targets:
+    flags = [calcdeps, '-o', 'compiled', '--compiler_jar=' + compiler_jar,
+            '-p', closure_dir, '-p', '.', '--output_file=' + t['out'], '-i',
+            t['src'], '-f', '--compilation_level', '-f',
+            'ADVANCED_OPTIMIZATIONS']
+    if 'ext' in t:
+        flags.extend(['-f', '--externs', '-f', t['ext']])
+    call(flags)
