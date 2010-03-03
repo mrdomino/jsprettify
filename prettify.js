@@ -110,7 +110,9 @@ jsprettify.prettifyHtml = function(e, opt_args) {
 };
 
 /**
- * Auto-prettify everything with classname 'prettify' in a document.
+ * Auto-prettify everything with classname 'prettify' in a document. This can
+ * be used in e.g. a window.onload function to automatically prettify all text
+ * when the window has loaded.
  */
 window.prettify = function() {
   var es = document.getElementsByClassName('prettify');
