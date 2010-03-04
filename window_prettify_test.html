@@ -30,6 +30,11 @@ limitations under the License.
   ><pre>"Ugly."</pre
   ><p class="keepugly">"Ugly."</p
 ></div>
+<div
+  ><div class="prettify"
+    ><p>"Pretty."</p
+  ></div
+></div>
 <script>
   var uglies = [];
   function setUp() {
@@ -41,7 +46,7 @@ limitations under the License.
   function tearDown() {
     var pretties = goog.dom.$$('*', 'prettify');
     for (var i = 0; i < pretties.length; i++) {
-      document.body.replaceChild(uglies[i], pretties[i]);
+      goog.dom.replaceNode(uglies[i], pretties[i]);
     }
   }
   function testPrettifiesDocFragments() {
@@ -71,5 +76,11 @@ limitations under the License.
     window.prettify();
     var pretty = selectUgly();
     assertEquals(ugly.innerHTML, pretty.innerHTML);
+  }
+  function testPrettifiesNestedElements() {
+    var selectPretty = function() { return goog.dom.$$('*', 'prettify')[1].firstChild; };
+    var ugly = selectPretty().cloneNode(true);
+    window.prettify();
+    var pretty = selectPretty();
   }
 </script>
