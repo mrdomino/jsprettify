@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-if (typeof goog != 'undefined') {
+if (typeof goog != 'undefined' && typeof goog.provide != 'undefined') {
 goog.provide('jsprettify.entities');
 goog.provide('jsprettify.prettifyHtml');
 goog.provide('jsprettify.prettifyStr');
