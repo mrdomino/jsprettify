@@ -16,7 +16,6 @@ if (typeof goog != 'undefined') {
 goog.provide('jsprettify.entities');
 goog.provide('jsprettify.prettifyHtml');
 goog.provide('jsprettify.prettifyStr');
-goog.provide('window.prettify');
 }
 
 var jsprettify = jsprettify || {};
