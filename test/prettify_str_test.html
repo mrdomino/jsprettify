@@ -1,0 +1,94 @@
+<!doctype html>
+<!--
+Copyright 2010 Steven Dee. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<title>Prettify Unit Tests</title>
+<script src="../../closure-library/closure/goog/base.js"></script>
+<script src="../deps.js"></script>
+<script>
+  goog.require('goog.testing.jsunit');
+  goog.require('jsprettify.entities');
+  goog.require('jsprettify.prettifyStr');
+</script>
+<body>
+<script>
+  // Shorten long object references.
+  var e = jsprettify.entities;
+  // Helper function for prettified output.
+  function assertPrettifiedEquals(expected, input) {
+    assertEquals(expected, jsprettify.prettifyStr(input));
+  }
+  function testPreservesPrettyInput() {
+    var myString = 'A very pretty string.';
+    assertPrettifiedEquals(myString, myString);
+  }
+  function testPrettifiesEnDashes() {
+    assertPrettifiedEquals(e.endash, '--');
+    assertPrettifiedEquals('Test ' + e.endash +' text.', 'Test -- text.');
+    assertPrettifiedEquals(e.endash + ' ' + e.endash, '-- --');
+  }
+  function testPrettifiesEmDashes() {
+    assertPrettifiedEquals(e.emdash, '---');
+    assertPrettifiedEquals('Test ' + e.emdash + ' text.', 'Test --- text.');
+    assertPrettifiedEquals(e.emdash + ' ' + e.emdash, '--- ---');
+  }
+  function testPrettifiesEmAndEnDashes() {
+    var em = e.emdash;
+    var en = e.endash;
+    var inputStr = '--- -- --- -- -- ---';
+    var expected = [em, en,em, en,en,em].join(' ');
+    assertPrettifiedEquals(expected, inputStr);
+  }
+  function testPrettifiesEllipses() {
+    assertPrettifiedEquals('Test' + e.hellip + ' ' + e.hellip + 'Test.',
+        'Test... ...Test.');
+  }
+  function testPrettifiesQuotesAtStartOfLine() {
+    assertPrettifiedEquals(e.lsquo + 'word.', "'word.");
+    assertPrettifiedEquals(e.ldquo + 'word.', '"word.');
+  }
+  function testPrettifiesQuotesAtEndOfLine() {
+    assertPrettifiedEquals('word.' + e.rsquo, "word.'");
+    assertPrettifiedEquals('word.' + e.rdquo, 'word."');
+  }
+  function testPrettifiesQuotesWithWhitespace() {
+    assertPrettifiedEquals('Word\t' + e.lsquo + 'word' + e.rsquo + '\nword.',
+        "Word\t'word'\nword.");
+    assertPrettifiedEquals('Word\t' + e.ldquo + 'word' + e.rdquo + '\nword.',
+        'Word\t"word"\nword.');
+  }
+  function testPrettifiesQuotesInQuotes() {
+    assertPrettifiedEquals(e.ldquo + e.lsquo + 'Word quoted' + e.rsquo +
+        e.rdquo, '"\'Word quoted\'"');
+  }
+  function testPrettifiesQuotesInContractions() {
+    assertPrettifiedEquals('I' + e.rsquo + 'm', "I'm");
+  }
+  function testPrettifiesQuotesThatAreEmpty() {
+    assertPrettifiedEquals(e.ldquo + e.lsquo + e.rsquo + e.rdquo, '"\'\'"');
+  }
+  function testPrettifiesDoubleQuoteBeforePunctuation() {
+    assertPrettifiedEquals(e.ldquo + 'word' + e.rdquo + '.', '"word".');
+    assertPrettifiedEquals(e.ldquo + 'word' + e.rdquo + ',', '"word",');
+    assertPrettifiedEquals(e.ldquo + 'word' + e.rdquo + ';', '"word";');
+    assertPrettifiedEquals(e.ldquo + 'word' + e.rdquo + ':', '"word":');
+    assertPrettifiedEquals(e.ldquo + 'word' + e.rdquo + '?', '"word"?');
+    assertPrettifiedEquals(e.ldquo + 'word' + e.rdquo + '!', '"word"!');
+  }
+  function testPrettifiesQuotesAfterEmDashes() {
+    assertPrettifiedEquals('Test' + e.emdash + e.ldquo + 'word' + e.rdquo,
+        'Test---"word"');
+  }
+</script>
