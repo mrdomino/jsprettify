@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="jsprettify bookmarklet" />
+  <Content type="url" href="http://jsprettify.googlecode.com/hg/bookmarklet.html" />
+</Module>
