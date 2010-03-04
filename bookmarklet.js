@@ -14,7 +14,7 @@
 
 if (! document.getElementById('prettify-script')) {
   var script = document.createElement('script');
-  script.src = 'http://jsprettify.googlecode.com/hg/prettify.js?r=jsprettify-stable';
+  script.src = 'http://jsprettify.googlecode.com/hg/prettify.js?r=bookmarklet-1';
   script.type = 'text/javascript';
   script.id = 'prettify-script';
   document.body.appendChild(script);
