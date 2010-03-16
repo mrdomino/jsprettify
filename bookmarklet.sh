@@ -1,7 +1,7 @@
 #!/bin/sh
 
-[ -f bookmarklet-comp.js ] || python build.py
-perl make_bookmarklet.pl bookmarklet-comp.js > bookmarklet-tmp.js 2>/dev/null
+[ -f build/bookmarklet-comp.js ] || python build.py
+perl make_bookmarklet.pl build/bookmarklet-comp.js > bookmarklet-tmp.js 2>/dev/null
 
 bm=`head -n1 bookmarklet-tmp.js | cut -c4-`
 
