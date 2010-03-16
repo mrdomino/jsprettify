@@ -14,15 +14,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from os import sep
+from os import mkdir, path, sep
 from subprocess import call
 
 compiler_jar = sep.join(['..', 'closure-compiler', 'compiler.jar'])
 closure_dir = sep.join(['..', 'closure-library', 'closure'])
 calcdeps = sep.join([closure_dir, 'bin', 'calcdeps.py'])
-targets = [{'src': 'prettify.js', 'out': 'prettify-comp.js'},
-           {'src': 'bookmarklet.js', 'out': 'bookmarklet-comp.js',
+targets = [{'src': 'prettify.js',
+            'out': sep.join(['build', 'prettify-comp.js'])},
+           {'src': 'bookmarklet.js',
+            'out': sep.join(['build', 'bookmarklet-comp.js']),
             'ext': 'prettify.js'}]
+
+if not path.isdir('build'):
+    mkdir('build')
 
 for t in targets:
     flags = [calcdeps, '-o', 'compiled', '--compiler_jar=' + compiler_jar,
