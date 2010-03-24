@@ -18,12 +18,42 @@ limitations under the License.
 <script src="../../closure-library/closure/goog/base.js"></script>
 <script src="../deps.js"></script>
 <script>
+  goog.require('goog.dom');
   goog.require('goog.testing.jsunit');
   goog.require('jsprettify.prettifyStr');
 </script>
 <body>
+  <div id="testcode"
+    ><form
+      ><textarea>"Pretty."</textarea
+      ><input type="text" value="'Pretty'"
+      ><input type="password" value="'Ugly'"
+    ></form
+  ></div>
 <script>
-  function testTrivial() {
-    assertTrue(true);
+  var original;
+  function setUp() {
+    original = goog.dom.$('testcode').cloneNode(true);
   };
+  function tearDown() {
+    goog.dom.replaceNode(original, goog.dom.$('testcode'));
+  }
+  function testPrettifiesTextareas() {
+    var ugly = document.forms[0].firstChild.cloneNode(true);
+    window.prettifyTextInputs();
+    var pretty = document.forms[0].firstChild;
+    assertEquals(jsprettify.prettifyStr(ugly.value), pretty.value);
+  };
+  function testPrettifiesTextInputs() {
+    var ugly = goog.dom.$$('input')[0].cloneNode(true);
+    window.prettifyTextInputs();
+    var pretty = goog.dom.$$('input')[0];
+    assertEquals(jsprettify.prettifyStr(ugly.value), pretty.value);
+  }
+  function testDoesNotPrettifyNonTextInputs() {
+    var oldPass = goog.dom.$$('input')[1].cloneNode(true);
+    window.prettifyTextInputs();
+    var newPass = goog.dom.$$('input')[1];
+    assertEquals(oldPass.value, newPass.value);
+  }
 </script>

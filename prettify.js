@@ -111,3 +111,19 @@ window['prettify'] = function() {
     goog.dom.replaceNode(jsprettify.prettifyHtml(es[i], opts), es[i]);
   }
 };
+
+/**
+ * Prettifies all textareas and text inputs in a document.
+ */
+window['prettifyTextInputs'] = function() {
+  var textareas = goog.dom.$$('textarea');
+  goog.array.forEach(textareas, function(t) {
+    t.value = jsprettify.prettifyStr(t.value);
+  });
+  var inputs = goog.dom.$$('input');
+  goog.array.forEach(inputs, function(i) {
+    if (i.type == 'text') {
+      i.value = jsprettify.prettifyStr(i.value);
+    }
+  });
+};
