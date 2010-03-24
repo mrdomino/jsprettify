@@ -45,27 +45,25 @@ jsprettify.entities = {
 jsprettify.prettifyStr = function(text) {
   var e = jsprettify.entities;
   /**
-   * This array-of-arrays holds entries consisting of patterns and
-   * substitutions in the order that they are to be applied. We need to
-   * preserve order, since e.g. if -- were replaced before ---, disaster
-   * would ensue.
-   * @type {Array.<Array.<string>>}
+   * This array holds entries consisting of patterns and replacements in the
+   * order that they are to be applied. We need to preserve order, since e.g.
+   * if -- were replaced before ---, disaster would ensue.
+   * @type {Array.<{pattern: string, replace: string}>}
    */
   var subs = [
-    ['\\.\\.\\.', e.hellip],
-    ["(^|[\\s\"])'", '$1' + e.lsquo],
-    ['(^|[\\s-])"', '$1' + e.ldquo],
-    ['---', e.emdash],
-    ['--', e.endash],
-    ["'($|[\\s\"])?", e.rsquo + '$1'],
-    ['"($|[\\s.,;:?!])', e.rdquo + '$1']
+    {pattern: '\\.\\.\\.', replace: e.hellip},
+    {pattern: "(^|[\\s\"])'", replace: '$1' + e.lsquo},
+    {pattern: '(^|[\\s-])"', replace: '$1' + e.ldquo},
+    {pattern: '---', replace: e.emdash},
+    {pattern: '--', replace: e.endash},
+    {pattern: "'($|[\\s\"])?", replace: e.rsquo + '$1'},
+    {pattern: '"($|[\\s.,;:?!])', replace: e.rdquo + '$1'}
   ];
-  for (var i = 0; i < subs.length; i++) {
-    var arr = subs[i];
-    var re = new RegExp(arr[0], 'g');
-    var sub = arr[1];
-    text = text.replace(re, sub);
-  };
+  goog.array.forEach(subs, function(sub) {
+    var pattern = new RegExp(sub['pattern'], 'g');
+    var replace = sub['replace'];
+    text = text.replace(pattern, replace);
+  });
   return text;
 };
 
