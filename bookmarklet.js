@@ -21,7 +21,7 @@ if (! document.getElementById('prettify-script')) {
 }
 function doPrettify() {
   if (typeof window.prettifyTextInputs != 'undefined') {
-    prettifyMe();
+    window.prettifyTextInputs();
   } else {
     setTimeout(doPrettify, 100);
   }
