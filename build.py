@@ -24,7 +24,7 @@ targets = [{'src': 'prettify.js',
             'out': sep.join(['build', 'prettify-comp.js'])},
            {'src': 'bookmarklet.js',
             'out': sep.join(['build', 'bookmarklet-comp.js']),
-            'ext': 'prettify.js'}]
+            'ext': 'bookmarklet-externs.js'}]
 
 if not path.isdir('build'):
     mkdir('build')
