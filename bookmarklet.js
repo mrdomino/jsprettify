@@ -19,21 +19,8 @@ if (! document.getElementById('prettify-script')) {
   script.id = 'prettify-script';
   document.body.appendChild(script);
 }
-function prettifyMe() {
-  var tags = document.getElementsByTagName('textarea');
-  for (var i = 0; i < tags.length; i++) {
-    tags[i].value = jsprettify.prettifyStr(tags[i].value);
-  }
-  tags = document.getElementsByTagName('input');
-  for (var i = 0; i < tags.length; i++) {
-    if (tags[i].type == 'text') {
-      tags[i].value = jsprettify.prettifyStr(tags[i].value);
-    }
-  }
-}
 function doPrettify() {
-  if (typeof jsprettify != 'undefined' &&
-      typeof jsprettify.prettifyStr != 'undefined') {
+  if (typeof window.prettifyTextInputs != 'undefined') {
     prettifyMe();
   } else {
     setTimeout(doPrettify, 100);
