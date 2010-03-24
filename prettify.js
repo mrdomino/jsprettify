@@ -60,9 +60,8 @@ jsprettify.prettifyStr = function(text) {
     {pattern: '"($|[\\s.,;:?!])',  replace: e.rdquo + '$1'}
   ];
   goog.array.forEach(subs, function(sub) {
-    var pattern = new RegExp(sub['pattern'], 'g');
-    var replace = sub['replace'];
-    text = text.replace(pattern, replace);
+    var pattern = new RegExp(sub.pattern, 'g');
+    text = text.replace(pattern, sub.replace);
   });
   return text;
 };
