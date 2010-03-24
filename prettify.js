@@ -81,7 +81,7 @@ jsprettify.prettifyStr = function(text) {
 jsprettify.prettifyHtml = function(e, opt_args) {
   var args = opt_args || {};
   var uglyTags = args['uglyTags'] || [];
-  var uglyClass = args['uglyClass'] || "";
+  var uglyClass = args['uglyClass'] || '';
   if (e == null) {
     return null;
   }
