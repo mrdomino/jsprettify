@@ -3,3 +3,4 @@ goog.addDependency('../../../jsprettify/prettify.js', ['jsprettify', 'jsprettify
 goog.addDependency('../../../jsprettify/bookmarklet.js', [], []);
 goog.addDependency('../../../jsprettify/deps.js', [], []);
 goog.addDependency('../../../jsprettify/alltests.js', [], []);
+goog.addDependency('../../../jsprettify/gadgets/example.js', ['jsprettify.example'], []);
