@@ -15,8 +15,8 @@
 goog.provide('jsprettify.entities');
 goog.provide('jsprettify.prettifyHtml');
 goog.provide('jsprettify.prettifyStr');
-goog.provide('window.prettify');
-goog.provide('window.prettifyTextInputs');
+goog.provide('jsprettify.prettify');
+goog.provide('jsprettify.prettifyTextInputs');
 
 goog.require('goog.array');
 goog.require('goog.dom');
@@ -105,7 +105,7 @@ jsprettify.prettifyHtml = function(e, opt_args) {
  * can be used in e.g. a window.onload function to automatically prettify all
  * text when the window has loaded.
  */
-window['prettify'] = function() {
+jsprettify.prettify = function() {
   var es = goog.dom.$$(null, 'prettify');
   var opts = {'uglyTags': ['code', 'pre'], 'uglyClass': 'keepugly'};
   for (var i = 0; i < es.length; i++) {
@@ -116,7 +116,7 @@ window['prettify'] = function() {
 /**
  * Prettifies all textareas and text inputs in a document.
  */
-window['prettifyTextInputs'] = function() {
+jsprettify.prettifyTextInputs = function() {
   var textareas = goog.dom.$$('textarea');
   goog.array.forEach(textareas, function(t) {
     t.value = jsprettify.prettifyStr(t.value);
