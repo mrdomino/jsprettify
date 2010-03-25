@@ -91,4 +91,8 @@ limitations under the License.
     assertPrettifiedEquals('Test' + e.emdash + e.ldquo + 'word' + e.rdquo,
         'Test---"word"');
   }
+  function testPrettifiesApostrophesAtWordOpenings() {
+    assertPrettifiedEquals(e.rsquo + 'Tis and ' + e.rsquo + 'twere.',
+        "'Tis and 'twere.");
+  }
 </script>
