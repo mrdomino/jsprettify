@@ -21,7 +21,7 @@ limitations under the License.
   goog.require('goog.dom');
   goog.require('goog.testing.jsunit');
   goog.require('jsprettify.prettifyHtml');
-  goog.require('window.prettify');
+  goog.require('jsprettify.prettify');
 </script>
 <body>
 <div class="prettify"
@@ -52,35 +52,35 @@ limitations under the License.
   function testPrettifiesDocFragments() {
     var selectPretty = function() { return goog.dom.$$('*', 'prettify')[0].firstChild; };
     var ugly = selectPretty().cloneNode(true);
-    window.prettify();
+    jsprettify.prettify();
     var pretty = selectPretty();
     assertEquals(jsprettify.prettifyHtml(ugly).innerHTML, pretty.innerHTML);
   }
   function testKeepsCodeBlocksUgly() {
     var selectUgly = function() { return goog.dom.$$('code')[0]; };
     var ugly = selectUgly().cloneNode(true);
-    window.prettify();
+    jsprettify.prettify();
     var pretty = selectUgly();
     assertEquals(ugly.innerHTML, pretty.innerHTML);
   }
   function testKeepsPreBlocksUgly() {
     var selectUgly = function() { return goog.dom.$$('pre')[0]; };
     var ugly = selectUgly().cloneNode(true);
-    window.prettify();
+    jsprettify.prettify();
     var pretty = selectUgly();
     assertEquals(ugly.innerHTML, pretty.innerHTML);
   }
   function testKeepsUglyClassUgly() {
     var selectUgly = function() { return goog.dom.$$('*', 'keepugly')[0]; };
     var ugly = selectUgly().cloneNode(true);
-    window.prettify();
+    jsprettify.prettify();
     var pretty = selectUgly();
     assertEquals(ugly.innerHTML, pretty.innerHTML);
   }
   function testPrettifiesNestedElements() {
     var selectPretty = function() { return goog.dom.$$('*', 'prettify')[1].firstChild; };
     var ugly = selectPretty().cloneNode(true);
-    window.prettify();
+    jsprettify.prettify();
     var pretty = selectPretty();
   }
 </script>

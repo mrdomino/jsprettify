@@ -21,7 +21,7 @@ limitations under the License.
   goog.require('goog.dom');
   goog.require('goog.testing.jsunit');
   goog.require('jsprettify.prettifyStr');
-  goog.require('window.prettifyTextInputs');
+  goog.require('jsprettify.prettifyTextInputs');
 </script>
 <body>
   <div id="testcode"
@@ -41,19 +41,19 @@ limitations under the License.
   }
   function testPrettifiesTextareas() {
     var ugly = document.forms[0].firstChild.cloneNode(true);
-    window.prettifyTextInputs();
+    jsprettify.prettifyTextInputs();
     var pretty = document.forms[0].firstChild;
     assertEquals(jsprettify.prettifyStr(ugly.value), pretty.value);
   };
   function testPrettifiesTextInputs() {
     var ugly = goog.dom.$$('input')[0].cloneNode(true);
-    window.prettifyTextInputs();
+    jsprettify.prettifyTextInputs();
     var pretty = goog.dom.$$('input')[0];
     assertEquals(jsprettify.prettifyStr(ugly.value), pretty.value);
   }
   function testDoesNotPrettifyNonTextInputs() {
     var oldPass = goog.dom.$$('input')[1].cloneNode(true);
-    window.prettifyTextInputs();
+    jsprettify.prettifyTextInputs();
     var newPass = goog.dom.$$('input')[1];
     assertEquals(oldPass.value, newPass.value);
   }
