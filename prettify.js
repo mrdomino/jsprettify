@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+goog.provide('jsprettify');
 goog.provide('jsprettify.entities');
 goog.provide('jsprettify.prettifyHtml');
 goog.provide('jsprettify.prettifyStr');
