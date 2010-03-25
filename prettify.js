@@ -86,7 +86,7 @@ jsprettify.prettifyHtml = function(e, opt_args) {
     return null;
   }
   var ret = e.cloneNode(true);
-  if (e.nodeType == Node.TEXT_NODE) {
+  if (e.nodeType == goog.dom.NodeType.TEXT) {
     goog.dom.setTextContent(ret,
         jsprettify.prettifyStr(goog.dom.getTextContent(ret)));
   } else if (! goog.array.contains(uglyTags, e.nodeName.toLowerCase()) &&
