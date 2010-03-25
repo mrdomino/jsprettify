@@ -23,7 +23,7 @@ function doPrettify() {
   if (typeof window.prettifyTextInputs != 'undefined') {
     window.prettifyTextInputs();
   } else {
-    setTimeout(doPrettify, 100);
+    window.setTimeout(doPrettify, 100);
   }
 }
 doPrettify();
