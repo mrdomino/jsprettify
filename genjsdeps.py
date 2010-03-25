@@ -15,12 +15,14 @@
 # limitations under the License.
 
 from os import chdir, sep
+from os.path import basename
+from sys import path
 from subprocess import call, PIPE
 
 # Closure library directory relative to project root.
 closuredir = sep.join(['..', 'closure-library', 'closure'])
 # Project directory relative to the location of base.js (see below.)
-projdir = sep.join(['..', '..', '..', 'jsprettify'])
+projdir = sep.join(['..', '..', '..', basename(path[0])])
 
 # Per erik.arvidsson@gmail.com:
 # > It is a bit tricky to get the paths correct but I found that running
