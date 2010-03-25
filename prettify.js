@@ -16,6 +16,7 @@ goog.provide('jsprettify.entities');
 goog.provide('jsprettify.prettifyHtml');
 goog.provide('jsprettify.prettifyStr');
 goog.provide('window.prettify');
+goog.provide('window.prettifyTextInputs');
 
 goog.require('goog.array');
 goog.require('goog.dom');
