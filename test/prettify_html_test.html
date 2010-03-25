@@ -59,4 +59,13 @@ limitations under the License.
   function testAcceptsNullArgument() {
     assertEquals(null, jsprettify.prettifyHtml(null));
   }
+  function testMatchesQuotesAcrossTags() {
+    var myTree = goog.dom.$dom('div', null,
+        goog.dom.$dom('span', null,
+            "'Opening, ",
+            goog.dom.$dom('em', null, "Middle, "),
+            "Closing.'"));
+    assertEquals(jsprettify.prettifyStr("'Opening, Middle, Closing.'"),
+        goog.dom.getTextContent(jsprettify.prettifyHtml(myTree)));
+  }
 </script>
