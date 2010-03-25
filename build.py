@@ -31,9 +31,11 @@ if not path.isdir('build'):
 
 for t in targets:
     flags = [calcdeps, '-o', 'compiled', '--compiler_jar=' + compiler_jar,
-            '-p', closure_dir, '-p', '.', '--output_file=' + t['out'], '-i',
-            t['src'], '-f', '--compilation_level', '-f',
-            'ADVANCED_OPTIMIZATIONS']
+             '-p', closure_dir, '-p', '.', '--output_file=' + t['out'], '-i',
+             t['src'],
+             '-f', '--compilation_level', '-f', 'ADVANCED_OPTIMIZATIONS',
+#             '-f','--warning_level', '-f', 'VERBOSE'
+            ]
     if 'ext' in t:
         flags.extend(['-f', '--externs', '-f', t['ext']])
     call(flags)
