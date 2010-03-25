@@ -12,4 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-var _allTests = ["test/prettify_str_test.html","test/prettify_html_test.html","test/prettify_html_opts_test.html","test/prettify_test.html","test/prettify_text_inputs_test.html","test/bookmarklet_test.html","test/window_exports.html","test/example_gadget_test.html"];
+var _allTests = [
+  "test/prettify_str_test.html",
+  "test/prettify_html_test.html",
+  "test/prettify_html_opts_test.html",
+  "test/prettify_test.html",
+  "test/prettify_text_inputs_test.html",
+  "test/bookmarklet_test.html",
+  "test/window_exports.html",
+  "test/example_gadget_test.html"
+];
