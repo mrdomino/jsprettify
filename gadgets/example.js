@@ -13,3 +13,22 @@
 // limitations under the License.
 
 goog.provide('jsprettify.example');
+
+goog.require('goog.events');
+goog.require('goog.events.EventType');
+goog.require('jsprettify.prettifyStr');
+
+
+jsprettify.example.doJsprettifyExample = function() {
+  var input = goog.dom.$('input');
+  var output = goog.dom.$('output');
+  var updateText = function(e) {
+    if (e)
+      e.stopPropagation();
+    goog.dom.setTextContent(output, jsprettify.prettifyStr(input.value));
+  };
+  updateText();
+  goog.events.listen(input, goog.events.EventType.KEYUP, updateText);
+};
+
+window['doJsprettifyExample'] = jsprettify.example.doJsprettifyExample;

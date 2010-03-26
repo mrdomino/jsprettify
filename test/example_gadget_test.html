@@ -19,6 +19,8 @@ limitations under the License.
 <script src="../deps.js"></script>
 <script>
   goog.require('goog.dom');
+  goog.require('goog.events');
+  goog.require('goog.events.EventType');
   goog.require('goog.testing.jsunit');
   goog.require('jsprettify');
   goog.require('jsprettify.example');
@@ -37,7 +39,11 @@ limitations under the License.
     goog.dom.replaceNode(testcode, goog.dom.$dom('testcode'));
   }
   function testUpdatesDivInitially() {
+    window.doJsprettifyExample();
     assertEquals(window.prettifyStr('"Initial text."'),
         goog.dom.getTextContent(goog.dom.$('output')));
+  }
+  function testUpdatesDivOnUpdate() {
+    // TODO
   }
 </script>
