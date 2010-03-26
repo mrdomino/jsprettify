@@ -22,6 +22,8 @@ closure_dir = sep.join(['..', 'closure-library', 'closure'])
 calcdeps = sep.join([closure_dir, 'bin', 'calcdeps.py'])
 targets = [{'src': 'prettify.js',
             'out': sep.join(['build', 'prettify-comp.js'])},
+           {'src': sep.join(['gadgets', 'example.js']),
+            'out': sep.join(['build', 'example-comp.js'])},
            {'src': 'bookmarklet.js',
             'out': sep.join(['build', 'bookmarklet-comp.js']),
             'ext': 'bookmarklet-externs.js'}]
