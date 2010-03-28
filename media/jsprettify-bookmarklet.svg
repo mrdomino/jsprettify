@@ -9,12 +9,12 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="142.86639"
-   height="26.81094"
+   width="97.331978"
+   height="18"
    id="svg2890"
    version="1.1"
    inkscape:version="0.47pre4 r22446"
-   sodipodi:docname="New document 5">
+   sodipodi:docname="jsprettify-bookmarklet.svg">
   <defs
      id="defs2892">
     <inkscape:perspective
@@ -40,11 +40,11 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.6568542"
-     inkscape:cx="46.283052"
-     inkscape:cy="28.532248"
+     inkscape:cx="65.006631"
+     inkscape:cy="23.633673"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="true"
+     inkscape:current-layer="g3717"
+     showgrid="false"
      inkscape:window-width="1680"
      inkscape:window-height="998"
      inkscape:window-x="0"
@@ -66,7 +66,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -74,25 +74,34 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-3.5668037,-1018.9567)">
+     transform="translate(-6.1728848,-1028.1723)">
     <g
-       id="g3717">
-      <path
-         inkscape:label="#background"
-         id="background"
-         d="m 18,1019.3622 c -7.753547,0 -14.0280374,5.8203 -14.0280374,13 0,7.1797 6.2744904,13 14.0280374,13 0.05924,0 0.118504,7e-4 0.17757,0 l 113.64486,0 c 0.0591,7e-4 0.11833,0 0.17757,0 7.75354,0 14.02804,-5.8203 14.02804,-13 0,-7.1797 -6.2745,-13 -14.02804,-13 -0.0592,0 -0.1185,-7e-4 -0.17757,0 l -113.64486,0 c -0.05907,-7e-4 -0.118331,0 -0.17757,0 z"
-         style="fill:#808080;stroke:#000000;stroke-width:0.81031775;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-      <text
-         id="text"
-         y="1038.7041"
-         x="11.264305"
-         style="font-size:25.46692085px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Gentium;-inkscape-font-specification:Gentium"
-         xml:space="preserve"><tspan
-           style="font-style:italic"
-           y="1038.7041"
-           x="11.264305"
-           id="tspan2913"
-           sodipodi:role="line">“jsPrettify—”</tspan></text>
+       id="g3717"
+       transform="matrix(0.67136773,0,0,0.67136773,1.1721667,343.673)">
+      <g
+         id="g3686"
+         transform="matrix(1.0672834,0,0,1.0672834,-0.50116382,-70.403335)">
+        <rect
+           rx="7.5042739"
+           ry="8.0111923"
+           y="1021.7782"
+           x="7.9771414"
+           height="24.047571"
+           width="134.77896"
+           id="rect3684"
+           style="fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-width:1.05717707;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        <text
+           xml:space="preserve"
+           style="font-size:25.46692085px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Gentium;-inkscape-font-specification:Gentium"
+           x="11.630926"
+           y="1040.1528"
+           id="text"><tspan
+             sodipodi:role="line"
+             id="tspan2913"
+             x="11.630926"
+             y="1040.1528"
+             style="font-style:italic">“jsPrettify—”</tspan></text>
+      </g>
     </g>
   </g>
 </svg>
