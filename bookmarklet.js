@@ -12,17 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-if (! document.getElementById('prettify-script')) {
-  var script = document.createElement('script');
-  script.src = 'http://jsprettify.googlecode.com/hg/build/prettify-comp.js';
-  script.type = 'text/javascript';
-  script.id = 'prettify-script';
-  document.body.appendChild(script);
-}
-(function () {
-  if (typeof window.prettifyTextInputs != 'undefined') {
-    window.prettifyTextInputs();
-  } else {
-    window.setTimeout(arguments.callee, 100);
+(function() {
+  if (! document.getElementById('prettify-script')) {
+    var script = document.createElement('script');
+    script.src = 'http://jsprettify.googlecode.com/hg/build/prettify-comp.js';
+    script.type = 'text/javascript';
+    script.id = 'prettify-script';
+    document.body.appendChild(script);
   }
+  (function doThingEventually() {
+    if (typeof window.prettifyTextInputs != 'undefined') {
+      window.prettifyTextInputs();
+    } else {
+      window.setTimeout(doThingEventually, 100);
+    }
+  })();
 })();
