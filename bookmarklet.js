@@ -19,11 +19,10 @@ if (! document.getElementById('prettify-script')) {
   script.id = 'prettify-script';
   document.body.appendChild(script);
 }
-function doPrettify() {
+(function () {
   if (typeof window.prettifyTextInputs != 'undefined') {
     window.prettifyTextInputs();
   } else {
-    window.setTimeout(doPrettify, 100);
+    window.setTimeout(arguments.callee, 100);
   }
-}
-doPrettify();
+})();
