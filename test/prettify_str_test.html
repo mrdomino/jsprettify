@@ -98,4 +98,9 @@ limitations under the License.
   function testPrettifiesTheFreakingLogo() {
     assertPrettifiedEquals(e.ldquo + e.emdash + e.rdquo, '"---"');
   }
+  function testPrettifiesDoubleNestedQuotes() {
+    assertPrettifiedEquals(e.ldquo + 'foo ' + e.lsquo + 'bar ' + e.ldquo +
+    'baz' + e.rdquo + ' bar' + e.rsquo + ' foo' + e.rdquo,
+        '"foo \'bar "baz" bar\' foo"');
+  }
 </script>
