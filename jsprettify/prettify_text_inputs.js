@@ -34,3 +34,6 @@ jsprettify.prettifyTextInputs = function() {
     }
   });
 };
+
+
+window['prettifyTextInputs'] = jsprettify.prettifyTextInputs;

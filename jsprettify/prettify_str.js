@@ -53,3 +53,6 @@ jsprettify.prettifyStr = function(text) {
   });
   return text;
 };
+
+
+window['prettifyStr'] = jsprettify.prettifyStr;

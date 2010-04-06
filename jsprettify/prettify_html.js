@@ -18,6 +18,7 @@ goog.require('goog.array');
 goog.require('goog.dom');
 goog.require('jsprettify.prettifyStr');
 
+
 /**
  * Prettifies HTML Nodes by recursively prettifying their child text nodes.
  * This function operates nondestructively -- a prettified HTML fragment is
@@ -51,3 +52,5 @@ jsprettify.prettifyHtml = function(e, opt_args) {
   return ret;
 };
 
+
+window['prettifyHtml'] = jsprettify.prettifyHtml;
