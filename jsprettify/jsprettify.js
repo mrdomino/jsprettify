@@ -18,9 +18,3 @@ goog.require('jsprettify.prettify');
 goog.require('jsprettify.prettifyHtml');
 goog.require('jsprettify.prettifyStr');
 goog.require('jsprettify.prettifyTextInputs');
-
-// Export globals.
-window['prettify'] = jsprettify.prettify;
-window['prettifyTextInputs'] = jsprettify.prettifyTextInputs;
-window['prettifyStr'] = jsprettify.prettifyStr;
-window['prettifyHtml'] = jsprettify.prettifyHtml;

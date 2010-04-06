@@ -30,3 +30,6 @@ jsprettify.prettify = function() {
     goog.dom.replaceNode(jsprettify.prettifyHtml(es[i], opts), es[i]);
   }
 };
+
+
+window['prettify'] = jsprettify.prettify;
