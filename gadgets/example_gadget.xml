@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
   <ModulePrefs title="Typography prettification example" />
-  <Content type="url" href="http://jsprettify.googlecode.com/hg/gadgets/example.html?r=gadgets-stable" />
+  <Content type="url" href="http://jsprettify.googlecode.com/hg/gadgets/example.html" />
 </Module>
