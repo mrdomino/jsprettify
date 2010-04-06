@@ -106,4 +106,8 @@ limitations under the License.
   function testPrettifiesWithPunctuationAndSingleQuotes() {
     assertPrettifiedEquals('foo ' + e.lsquo + 'bar' + e.rsquo + '.', "foo 'bar'.");
   }
+  function testPrettifiesContiguousSingleQuotePairs() {
+    assertPrettifiedEquals(e.lsquo + 'a' + e.rsquo + ' ' +
+        e.lsquo + 'b' + e.rsquo + ' ' + e.lsquo + 'c' + e.rsquo, "'a' 'b' 'c'");
+  }
 </script>
