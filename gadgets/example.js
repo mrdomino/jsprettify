@@ -14,6 +14,7 @@
 
 goog.provide('jsprettify.example');
 
+goog.require('goog.dom');
 goog.require('goog.events');
 goog.require('goog.events.EventType');
 goog.require('jsprettify.prettifyStr');
