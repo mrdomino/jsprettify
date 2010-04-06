@@ -28,7 +28,7 @@ jsprettify.example.doJsprettifyExample = function() {
       e.stopPropagation();
     goog.dom.setTextContent(output, jsprettify.prettifyStr(input.value));
   };
-  updateText();
+  updateText(null);
   goog.events.listen(input, goog.events.EventType.KEYUP, updateText);
 };
 
