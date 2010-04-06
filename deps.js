@@ -9,4 +9,4 @@ goog.addDependency('../../../jsprettify/jsprettify/prettify_str.js', ['jsprettif
 goog.addDependency('../../../jsprettify/jsprettify/entities.js', ['jsprettify.entities'], []);
 goog.addDependency('../../../jsprettify/jsprettify/prettify_text_inputs.js', ['jsprettify.prettifyTextInputs'], ['goog.array', 'goog.dom', 'jsprettify.prettifyStr']);
 goog.addDependency('../../../jsprettify/jsprettify/prettify_html.js', ['jsprettify.prettifyHtml'], ['goog.array', 'goog.dom', 'jsprettify.prettifyStr']);
-goog.addDependency('../../../jsprettify/gadgets/example.js', ['jsprettify.example'], ['goog.events', 'goog.events.EventType', 'jsprettify.prettifyStr']);
+goog.addDependency('../../../jsprettify/gadgets/example.js', ['jsprettify.example'], ['goog.dom', 'goog.events', 'goog.events.EventType', 'jsprettify.prettifyStr']);
