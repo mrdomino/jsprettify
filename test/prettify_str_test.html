@@ -103,4 +103,7 @@ limitations under the License.
     'baz' + e.rdquo + ' bar' + e.rsquo + ' foo' + e.rdquo,
         '"foo \'bar "baz" bar\' foo"');
   }
+  function testPrettifiesWithPunctuationAndSingleQuotes() {
+    assertPrettifiedEquals('foo ' + e.lsquo + 'bar' + e.rsquo + '.', "foo 'bar'.");
+  }
 </script>
