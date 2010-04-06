@@ -20,7 +20,7 @@ from subprocess import call
 compiler_jar = sep.join(['..', 'closure-compiler', 'compiler.jar'])
 closure_dir = sep.join(['..', 'closure-library', 'closure'])
 calcdeps = sep.join([closure_dir, 'bin', 'calcdeps.py'])
-targets = [{'src': 'prettify.js',
+targets = [{'src': 'jsprettify/jsprettify.js',
             'out': sep.join(['build', 'prettify-comp.js'])},
            {'src': sep.join(['gadgets', 'example.js']),
             'out': sep.join(['build', 'example-comp.js'])},
