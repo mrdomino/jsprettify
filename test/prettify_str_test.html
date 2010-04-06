@@ -108,6 +108,8 @@ limitations under the License.
   }
   function testPrettifiesContiguousSingleQuotePairs() {
     assertPrettifiedEquals(e.lsquo + 'a' + e.rsquo + ' ' +
-        e.lsquo + 'b' + e.rsquo + ' ' + e.lsquo + 'c' + e.rsquo, "'a' 'b' 'c'");
+        e.lsquo + 'b' + e.rsquo + ' ' + e.lsquo + 'c' + e.rsquo + ' ' +
+        e.lsquo + 'd' + e.rsquo + ' ' + e.lsquo + 'e' + e.rsquo,
+        "'a' 'b' 'c' 'd' 'e'");
   }
 </script>
