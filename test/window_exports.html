@@ -25,9 +25,12 @@ limitations under the License.
 <body>
 <script>
   function testGlobalsAreExported() {
-    assertTrue(typeof window.prettify == 'function');
-    assertTrue(typeof window.prettifyHtml == 'function');
-    assertTrue(typeof window.prettifyStr == 'function');
-    assertTrue(typeof window.prettifyTextInputs == 'function');
+    assertTrue('prettify is a function', typeof window.prettify == 'function');
+    assertTrue('prettifyHtml is a function',
+        typeof window.prettifyHtml == 'function');
+    assertTrue('prettifyStr is a function',
+        typeof window.prettifyStr == 'function');
+    assertTrue('prettifyTextInputs is a function',
+        typeof window.prettifyTextInputs == 'function');
   }
 </script>
