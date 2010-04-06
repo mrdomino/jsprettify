@@ -35,11 +35,11 @@ jsprettify.prettifyStr = function(text) {
   var subs = [
     {pattern: '\\.\\.\\.',         replace: e.hellip},
     {pattern: "(^|[\\s\"])'",      replace: '$1' + e.lsquo},
+    {pattern: "'($|[\\s\"])?",     replace: e.rsquo + '$1'},
+    {pattern: '"($|[\\s.,;:?!])',  replace: e.rdquo + '$1'},
     {pattern: '(^|[\\s-])"',       replace: '$1' + e.ldquo},
     {pattern: '---',               replace: e.emdash},
-    {pattern: '--',                replace: e.endash},
-    {pattern: "'($|[\\s\"])?",     replace: e.rsquo + '$1'},
-    {pattern: '"($|[\\s.,;:?!])',  replace: e.rdquo + '$1'}
+    {pattern: '--',                replace: e.endash}
   ];
   goog.array.forEach(subs, function(sub) {
     var pattern = new RegExp(sub.pattern, 'g');
