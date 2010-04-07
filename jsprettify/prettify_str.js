@@ -26,16 +26,8 @@ goog.require('jsprettify.entities');
  */
 jsprettify.prettifyStr = function(text) {
   var e = jsprettify.entities;
-  // First we replace single-quoted expressions by looking for pairs with the
-  // shortest distance between them: we grab an open quote, any intervening
-  // text, and a close quote.
-  var pattern = new RegExp("(^|[\\s\"])'(.*?)'($|[\\s\".,;:?!])", 'g');
-  var replace = '$1' + e.lsquo + '$2' + e.rsquo + '$3';
-  text = text.replace(pattern, replace);
-  // We need to run the regexp twice for cases like "'a' 'b'", where the space
-  // character gets consumed by the first match (see
-  // testPrettifiesContiguousSingleQuotePairs in prettify_str_test.html).
-  text = text.replace(pattern, replace);
+  var squoPattern = "(^|[\\s\"])'(.*?)'($|[\\s\".,;:?!])";
+  var squoReplace = '$1' + e.lsquo + '$2' + e.rsquo + '$3';
   /**
    * This array holds entries consisting of patterns and replacements in the
    * order that they are to be applied. We need to preserve order, since e.g.
@@ -43,6 +35,14 @@ jsprettify.prettifyStr = function(text) {
    * @type {Array.<{pattern: string, replace: string}>}
    */
   var subs = [
+    // First we replace single-quoted expressions by looking for pairs with the
+    // shortest distance between them: we grab an open quote, any intervening
+    // text, and a close quote.
+    {pattern: squoPattern,         replace: squoReplace},
+    // We need to run the regexp twice for cases like "'a' 'b'", where the space
+    // character gets consumed by the first match (see
+    // testPrettifiesContiguousSingleQuotePairs in prettify_str_test.html).
+    {pattern: squoPattern,         replace: squoReplace},
     {pattern: '\\.\\.\\.',         replace: e.hellip},
     {pattern: "'",                 replace: e.rsquo},
     {pattern: '"($|[\\s.,;:?!])',  replace: e.rdquo + '$1'},
