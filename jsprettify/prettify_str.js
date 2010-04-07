@@ -26,7 +26,7 @@ goog.require('jsprettify.entities');
  */
 jsprettify.prettifyStr = function(text) {
   var e = jsprettify.entities;
-  var pattern = new RegExp("(^|[\\s\"])'([^']*)'($|[\\s\".,;:?!])", 'g');
+  var pattern = new RegExp("(^|[\\s\"])'(.*?)'($|[\\s\".,;:?!])", 'g');
   var replace = '$1' + e.lsquo + '$2' + e.rsquo + '$3';
   text = text.replace(pattern, replace);
   // We need to run the regexp twice for cases like "'a' 'b'", where the space
