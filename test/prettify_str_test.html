@@ -116,4 +116,8 @@ limitations under the License.
     assertPrettifiedEquals(e.lsquo + 'It' + e.rsquo + 's a beautiful day!' +
         e.rsquo, "'It's a beautiful day!'");
   }
+  function testPrettifiesDoubleInsideSingleQuotes() {
+    assertPrettifiedEquals(e.lsquo + e.ldquo + 'Here I am' + e.rdquo +
+        ', said Sam' + e.rsquo, '\'"Here I am", said Sam\'');
+  }
 </script>
