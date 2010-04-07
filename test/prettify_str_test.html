@@ -120,4 +120,8 @@ limitations under the License.
     assertPrettifiedEquals(e.lsquo + e.ldquo + 'Here I am' + e.rdquo +
         ', said Sam' + e.rsquo, '\'"Here I am", said Sam\'');
   }
+  function testPrettifiesQuotedWordsInDashes() {
+    assertPrettifiedEquals('With' + e.emdash + e.lsquo + 'imaginary' +
+        e.rsquo + e.emdash + 'dashes.', "With---'imaginary'---dashes.");
+  }
 </script>
