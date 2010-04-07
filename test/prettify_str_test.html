@@ -112,4 +112,8 @@ limitations under the License.
         e.lsquo + 'd' + e.rsquo + ' ' + e.lsquo + 'e' + e.rsquo,
         "'a' 'b' 'c' 'd' 'e'");
   }
+  function testPrettifiesQuotedContractions() {
+    assertPrettifiedEquals(e.lsquo + 'It' + e.rsquo + 's a beautiful day!' +
+        e.rsquo, "'It's a beautiful day!'");
+  }
 </script>
