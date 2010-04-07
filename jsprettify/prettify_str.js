@@ -26,6 +26,9 @@ goog.require('jsprettify.entities');
  */
 jsprettify.prettifyStr = function(text) {
   var e = jsprettify.entities;
+  // First we replace single-quoted expressions by looking for pairs with the
+  // shortest distance between them: we grab an open quote, any intervening
+  // text, and a close quote.
   var pattern = new RegExp("(^|[\\s\"])'(.*?)'($|[\\s\".,;:?!])", 'g');
   var replace = '$1' + e.lsquo + '$2' + e.rsquo + '$3';
   text = text.replace(pattern, replace);
