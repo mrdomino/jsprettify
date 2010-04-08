@@ -119,6 +119,8 @@ limitations under the License.
   function testPrettifiesDoubleInsideSingleQuotes() {
     assertPrettifiedEquals(e.lsquo + e.ldquo + 'Here I am' + e.rdquo +
         ', said Sam' + e.rsquo, '\'"Here I am", said Sam\'');
+    assertPrettifiedEquals(e.lsquo + 'Test ' + e.ldquo + 'test.' + e.rdquo +
+        e.rsquo, "'Test \"test.\"'")
   }
   function testPrettifiesQuotedWordsInDashes() {
     assertPrettifiedEquals('With' + e.emdash + e.lsquo + 'imaginary' +
