@@ -29,7 +29,7 @@ jsprettify.prettifyStr = function(text) {
   // We replace single-quoted expressions by looking for pairs with the
   // shortest distance between them: we grab an open quote, any intervening
   // text, and a close quote.
-  var pattern = new RegExp("(^|[\\s\"])'([\\s\\S]*?)'($|[\\s\".,;:?!])", 'g');
+  var pattern = new RegExp("(^|[\\s\"-])'([\\s\\S]*?)'($|[\\s\".,;:?!-])", 'g');
   var replace = '$1' + e.lsquo + '$2' + e.rsquo + '$3';
   // We run the regexp until the string stops changing to handle nested quotes
   // and adjacent quotes.
