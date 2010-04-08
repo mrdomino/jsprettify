@@ -29,7 +29,8 @@ jsprettify.prettifyStr = function(text) {
   // We replace single-quoted expressions by looking for pairs with the
   // shortest distance between them: we grab an open quote, any intervening
   // text, and a close quote.
-  var pattern = new RegExp("(^|[\\(\\s\"-])'([\\s\\S]*?)'($|[\\)\\s\".,;:?!-])", 'g');
+  var pattern = new RegExp(
+      "(^|[\\(\\s\"-])'([\\s\\S]*?)'($|[\\)\\s\".,;:?!-])", 'g');
   var replace = '$1' + e.lsquo + '$2' + e.rsquo + '$3';
   // We run the regexp until the string stops changing to handle nested quotes
   // and adjacent quotes.
@@ -45,12 +46,12 @@ jsprettify.prettifyStr = function(text) {
    * @type {Array.<{pattern: string, replace: string}>}
    */
   var subs = [
-    {pattern: '\\.\\.\\.',                replace: e.hellip},
-    {pattern: "'",                        replace: e.rsquo},
+    {pattern: '\\.\\.\\.',                   replace: e.hellip},
+    {pattern: "'",                           replace: e.rsquo},
     {pattern: '"($|[\\)\\s.,;:?!\\u2019])',  replace: e.rdquo + '$1'},
     {pattern: '(^|[\\(\\s-\\u2018])"',       replace: '$1' + e.ldquo},
-    {pattern: '---',                      replace: e.emdash},
-    {pattern: '--',                       replace: e.endash}
+    {pattern: '---',                         replace: e.emdash},
+    {pattern: '--',                          replace: e.endash}
   ];
   goog.array.forEach(subs, function(sub) {
     var pattern = new RegExp(sub.pattern, 'g');
