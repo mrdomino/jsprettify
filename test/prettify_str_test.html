@@ -130,4 +130,7 @@ limitations under the License.
     assertPrettifiedEquals(s(d(s(d(s(e.ldquo + 'x' + e.rdquo))))),
         '\'x "x \'x "x \'x "x" x\' x" x\' x" x\'');
   }
+  function testPrettifiesAcrossLines() {
+    assertPrettifiedEquals(e.lsquo + 'Foo\nbar' + e.rsquo, "'Foo\nbar'");
+  }
 </script>
