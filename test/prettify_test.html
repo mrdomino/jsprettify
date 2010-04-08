@@ -28,6 +28,7 @@ limitations under the License.
   ><p>"Pretty."</p
   ><code>"Ugly."</code
   ><pre>"Ugly."</pre
+  ><kbd>"Ugly."</kbd
   ><p class="keepugly">"Ugly."</p
   ><script id="uglyscript">var foo="Ugly!";</script></div>
 <div
@@ -65,6 +66,13 @@ limitations under the License.
   }
   function testKeepsPreBlocksUgly() {
     var selectUgly = function() { return goog.dom.$$('pre')[0]; };
+    var ugly = selectUgly().cloneNode(true);
+    jsprettify.prettify();
+    var pretty = selectUgly();
+    assertEquals(ugly.innerHTML, pretty.innerHTML);
+  }
+  function testKeepsKbdBlocksUgly() {
+    var selectUgly = function() { return goog.dom.$$('kbd')[0]; };
     var ugly = selectUgly().cloneNode(true);
     jsprettify.prettify();
     var pretty = selectUgly();
