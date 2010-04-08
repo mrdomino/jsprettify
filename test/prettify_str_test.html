@@ -135,4 +135,8 @@ limitations under the License.
   function testPrettifiesAcrossLines() {
     assertPrettifiedEquals(e.lsquo + 'Foo\nbar' + e.rsquo, "'Foo\nbar'");
   }
+  function testPrettifiesQuotesInParens() {
+    assertPrettifiedEquals('('+e.ldquo+e.rdquo+')', '("")');
+    assertPrettifiedEquals('('+e.lsquo+e.rsquo+')', "('')");
+  }
 </script>
