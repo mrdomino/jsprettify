@@ -47,8 +47,8 @@ jsprettify.prettifyStr = function(text) {
   var subs = [
     {pattern: '\\.\\.\\.',         replace: e.hellip},
     {pattern: "'",                 replace: e.rsquo},
-    {pattern: '"($|[\\s.,;:?!])',  replace: e.rdquo + '$1'},
-    {pattern: '(^|[\\s-])"',       replace: '$1' + e.ldquo},
+    {pattern: '"($|[\\s.,;:?!\\u2019])',  replace: e.rdquo + '$1'},
+    {pattern: '(^|[\\s-\\u2018])"',       replace: '$1' + e.ldquo},
     {pattern: '---',               replace: e.emdash},
     {pattern: '--',                replace: e.endash}
   ];
