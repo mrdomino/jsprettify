@@ -125,7 +125,7 @@ limitations under the License.
         e.rsquo + e.emdash + 'dashes.', "With---'imaginary'---dashes.");
   }
   function testPrettifiesMultiLevelNestedQuotes() {
-    var s = function(x) { return e.rsquo + 'x ' + x + ' x' + e.rsquo; };
+    var s = function(x) { return e.lsquo + 'x ' + x + ' x' + e.rsquo; };
     var d = function(x) { return e.ldquo + 'x ' + x + ' x' + e.rdquo; };
     assertPrettifiedEquals(s(d(s(d(s(e.ldquo + 'x' + e.rdquo))))),
         '\'x "x \'x "x \'x "x" x\' x" x\' x" x\'');
