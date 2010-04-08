@@ -25,7 +25,8 @@ goog.require('jsprettify.prettifyHtml');
  */
 jsprettify.prettify = function() {
   var es = goog.dom.$$(null, 'prettify');
-  var opts = {'uglyTags': ['code', 'pre', 'script'], 'uglyClass': 'keepugly'};
+  var opts = {'uglyTags': ['code', 'kbd', 'pre', 'script'],
+              'uglyClass': 'keepugly'};
   for (var i = 0; i < es.length; i++) {
     goog.dom.replaceNode(jsprettify.prettifyHtml(es[i], opts), es[i]);
   }
