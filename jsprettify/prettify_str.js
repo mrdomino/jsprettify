@@ -46,12 +46,12 @@ jsprettify.prettifyStr = function(text) {
    * @type {Array.<{pattern: string, replace: string}>}
    */
   var subs = [
-    {pattern: '\\.\\.\\.',                   replace: e.hellip},
-    {pattern: "'",                           replace: e.rsquo},
+    {pattern: '\\.\\.\\.',                    replace: e.hellip},
+    {pattern: "'",                            replace: e.rsquo},
     {pattern: '"($|[\\)\\s/.,;:?!\\u2019])',  replace: e.rdquo + '$1'},
     {pattern: '(^|[\\(\\s-/\\u2018])"',       replace: '$1' + e.ldquo},
-    {pattern: '---',                         replace: e.emdash},
-    {pattern: '--',                          replace: e.endash}
+    {pattern: '---',                          replace: e.emdash},
+    {pattern: '--',                           replace: e.endash}
   ];
   goog.array.forEach(subs, function(sub) {
     var pattern = new RegExp(sub.pattern, 'g');
