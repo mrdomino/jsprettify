@@ -139,4 +139,8 @@ limitations under the License.
     assertPrettifiedEquals('('+e.ldquo+e.rdquo+')', '("")');
     assertPrettifiedEquals('('+e.lsquo+e.rsquo+')', "('')");
   }
+  function testPrettifiesAroundSlashes() {
+    assertPrettifiedEquals(e.ldquo + 'Foo' + e.rdquo + '/' + e.ldquo + 'Bar' +
+        e.rdquo, '"Foo"/"Bar"');
+  }
 </script>
