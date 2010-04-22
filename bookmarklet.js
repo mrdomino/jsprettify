@@ -15,7 +15,7 @@
 (function() {
   if (! document.getElementById('prettify-script')) {
     var script = document.createElement('script');
-    script.src = 'http://jsprettify.googlecode.com/hg/build/prettify-comp.js';
+    script.src = 'http://static.smartercod.net/js/prettify-comp.js';
     script.type = 'text/javascript';
     script.id = 'prettify-script';
     document.body.appendChild(script);
