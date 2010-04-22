@@ -65,4 +65,13 @@ limitations under the License.
     assertEquals(jsprettify.prettifyStr("'foo's"),
         goog.dom.getTextContent(jsprettify.prettifyHtml(tree)));
   }
+  function testMatchesQuotesAcrossTags() {
+    var myTree = goog.dom.$dom('div', null,
+        goog.dom.$dom('span', null,
+            "'Opening, ",
+            goog.dom.$dom('em', null, "Middle, "),
+            "Closing.'"));
+    assertEquals(jsprettify.prettifyStr("'Opening, Middle, Closing.'"),
+        goog.dom.getTextContent(jsprettify.prettifyHtml(myTree)));
+  }
 </script>
