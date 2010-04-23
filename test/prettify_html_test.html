@@ -65,4 +65,10 @@ limitations under the License.
     assertEquals(jsprettify.prettifyStr("'foo's"),
         goog.dom.getTextContent(jsprettify.prettifyHtml(tree)));
   }
+  function testPreservesWhitespace() {
+    var tree = goog.dom.$dom('div');
+    tree.innerHTML = 'a <em>b</em> c';
+    assertEquals(jsprettify.prettifyStr('a b c'),
+        goog.dom.getTextContent(jsprettify.prettifyHtml(tree)));
+  }
 </script>
