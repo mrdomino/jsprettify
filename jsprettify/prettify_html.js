@@ -39,8 +39,7 @@ jsprettify.prettifyHtml = function(e, opt_args) {
   }
   var ret = e.cloneNode(true);
   if (e.nodeType == goog.dom.NodeType.TEXT) {
-    goog.dom.setTextContent(ret,
-        jsprettify.prettifyStr(goog.dom.getRawTextContent(ret)));
+    ret.data = jsprettify.prettifyStr(ret.data);
   } else if (! goog.array.contains(uglyTags, e.nodeName.toLowerCase()) &&
       ! (e.className && e.className == uglyClass)) {
     var curChildren = ret.childNodes;
