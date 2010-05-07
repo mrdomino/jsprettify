@@ -14,7 +14,17 @@
 
 goog.provide('jsprettify');
 
+goog.require('goog.object');
 goog.require('jsprettify.prettify');
 goog.require('jsprettify.prettifyHtml');
 goog.require('jsprettify.prettifyStr');
 goog.require('jsprettify.prettifyTextInputs');
+
+/*
+ * XXX DEPRECATED
+ * Back in the day, we stuck everything in the global namespace. Now,
+ * everything exists under the window.jsprettify namespace -- e.g.,
+ * window.jsprettify.prettifyStr. One day, the entries in the global
+ * namespace will go away.
+ */
+goog.object.extend(window, window['jsprettify']);

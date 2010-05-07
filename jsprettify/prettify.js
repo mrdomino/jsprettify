@@ -33,4 +33,5 @@ jsprettify.prettify = function() {
 };
 
 
-window['prettify'] = jsprettify.prettify;
+window['jsprettify'] = window['jsprettify'] || {};
+window['jsprettify']['prettify'] = jsprettify.prettify;

@@ -52,4 +52,5 @@ jsprettify.prettifyHtml = function(e, opt_args) {
 };
 
 
-window['prettifyHtml'] = jsprettify.prettifyHtml;
+window['jsprettify'] = window['jsprettify'] || {};
+window['jsprettify']['prettifyHtml'] = jsprettify.prettifyHtml;
