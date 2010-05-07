@@ -12,20 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-goog.provide('jsprettify');
+goog.provide('jsprettify.run');
 
-goog.require('goog.object');
+goog.require('goog.events');
 goog.require('jsprettify.prettify');
-goog.require('jsprettify.prettifyHtml');
-goog.require('jsprettify.prettifyStr');
-goog.require('jsprettify.prettifyTextInputs');
-goog.require('jsprettify.run');
 
-/*
- * XXX DEPRECATED
- * Back in the day, we stuck everything in the global namespace. Now,
- * everything exists under the window.jsprettify namespace -- e.g.,
- * window.jsprettify.prettifyStr. One day, the entries in the global
- * namespace will go away.
+
+/**
+ * Runner for jsprettify. Runs elements marked with class "prettify" through
+ * prettifyHtml on document load.
  */
-goog.object.extend(window, window['jsprettify']);
+jsprettify.run = function() {
+};
+
+window['jsprettify'] = window['jsprettify'] || {};
+window['jsprettify']['run'] = jsprettify.run;
