@@ -36,4 +36,5 @@ jsprettify.prettifyTextInputs = function() {
 };
 
 
-window['prettifyTextInputs'] = jsprettify.prettifyTextInputs;
+window['jsprettify'] = window['jsprettify'] || {};
+window['jsprettify']['prettifyTextInputs'] = jsprettify.prettifyTextInputs;
