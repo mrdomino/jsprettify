@@ -18,7 +18,10 @@ goog.require('goog.dom');
 goog.require('goog.events');
 goog.require('goog.events.EventType');
 goog.require('jsprettify.prettifyStr');
-
+// XXX the following are needed to prevent type warnings in Closure compiler.
+goog.require('goog.debug.ErrorHandler');
+goog.require('goog.events.EventTarget');
+goog.require('goog.events.EventHandler');
 
 jsprettify.example.doJsprettifyExample = function() {
   var input = goog.dom.$('input');
