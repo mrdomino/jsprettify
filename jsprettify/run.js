@@ -16,13 +16,20 @@ goog.provide('jsprettify.run');
 
 goog.require('goog.events');
 goog.require('jsprettify.prettify');
-
+// XXX the following are needed to prevent type warnings in Closure compiler.
+goog.require('goog.debug.ErrorHandler');
+goog.require('goog.events.EventTarget');
+goog.require('goog.events.EventHandler');
 
 /**
  * Runner for jsprettify. Runs elements marked with class "prettify" through
  * prettifyHtml on document load.
  */
 jsprettify.run = function() {
+  goog.events.listen(window, goog.events.EventType.LOAD,
+      function() {
+        jsprettify.prettify();
+      });
 };
 
 window['jsprettify'] = window['jsprettify'] || {};
