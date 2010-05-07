@@ -17,20 +17,23 @@ limitations under the License.
 <title>Prettify Unit Tests</title>
 <script src="../../closure-library/closure/goog/base.js"></script>
 <script src="../deps.js"></script>
+<script src="../build/prettify-comp.js"></script>
 <script>
   goog.require('goog.dom');
   goog.require('goog.testing.jsunit');
-  goog.require('jsprettify');
 </script>
 <body>
 <script>
   function testGlobalsAreExported() {
-    assertTrue('prettify is a function', typeof window.prettify == 'function');
+    assertTrue('window.jsprettify is defined',
+        typeof window.jsprettify != 'undefined');
+    assertTrue('prettify is a function',
+        typeof window.jsprettify.prettify == 'function');
     assertTrue('prettifyHtml is a function',
-        typeof window.prettifyHtml == 'function');
+        typeof window.jsprettify.prettifyHtml == 'function');
     assertTrue('prettifyStr is a function',
-        typeof window.prettifyStr == 'function');
+        typeof window.jsprettify.prettifyStr == 'function');
     assertTrue('prettifyTextInputs is a function',
-        typeof window.prettifyTextInputs == 'function');
+        typeof window.jsprettify.prettifyTextInputs == 'function');
   }
 </script>
