@@ -59,7 +59,3 @@ jsprettify.prettifyStr = function(text) {
   });
   return text;
 };
-
-
-window['jsprettify'] = window['jsprettify'] || {};
-window['jsprettify']['prettifyStr'] = jsprettify.prettifyStr;

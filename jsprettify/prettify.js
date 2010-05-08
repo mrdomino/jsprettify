@@ -31,7 +31,3 @@ jsprettify.prettify = function() {
     goog.dom.replaceNode(jsprettify.prettifyHtml(es[i], opts), es[i]);
   }
 };
-
-
-window['jsprettify'] = window['jsprettify'] || {};
-window['jsprettify']['prettify'] = jsprettify.prettify;
