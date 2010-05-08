@@ -19,5 +19,4 @@ var _allTests = ["test/bookmarklet_test.html"
                 ,"test/prettify_str_test.html"
                 ,"test/prettify_test.html"
                 ,"test/prettify_text_inputs_test.html"
-                ,"test/window_exports.html"
                 ];
