@@ -14,7 +14,6 @@
 
 goog.provide('jsprettify.prettifyTextInputs');
 
-goog.require('goog.array');
 goog.require('goog.dom');
 goog.require('jsprettify.prettifyStr');
 
@@ -24,13 +23,15 @@ goog.require('jsprettify.prettifyStr');
  */
 jsprettify.prettifyTextInputs = function() {
   var textareas = goog.dom.$$('textarea');
-  goog.array.forEach(textareas, function(t) {
+  for (var i = 0, l = textareas.length; i < l; ++i) {
+    var t = textareas[i];
     t.value = jsprettify.prettifyStr(t.value);
-  });
+  }
   var inputs = goog.dom.$$('input');
-  goog.array.forEach(inputs, function(i) {
-    if (i.type == 'text') {
-      i.value = jsprettify.prettifyStr(i.value);
+  for (var i = 0, l = inputs.length; i < l; ++i) {
+    var input = inputs[i];
+    if (input.type == 'text') {
+      input.value = jsprettify.prettifyStr(input.value);
     }
-  });
+  }
 };

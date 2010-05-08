@@ -14,7 +14,6 @@
 
 goog.provide('jsprettify.prettifyStr');
 
-goog.require('goog.array');
 goog.require('jsprettify.entities');
 
 
@@ -53,9 +52,10 @@ jsprettify.prettifyStr = function(text) {
     {pattern: '---',                          replace: e.emdash},
     {pattern: '--',                           replace: e.endash}
   ];
-  goog.array.forEach(subs, function(sub) {
-    var pattern = new RegExp(sub.pattern, 'g');
+  for (var i = 0, l = subs.length; i < l; ++i) {
+    var sub = subs[i];
+    pattern = new RegExp(sub.pattern, 'g');
     text = text.replace(pattern, sub.replace);
-  });
+  }
   return text;
 };
