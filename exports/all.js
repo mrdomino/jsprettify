@@ -32,3 +32,12 @@ for (var k in window['jsprettify']) {
     window['jsprettify'][k]();
   };
 };
+
+// Special message for prettifyTextInputs, which is likely used by
+// bookmarklets.
+window['prettifyTextInputs'] = function() {
+  alert('You appear to be using an out-of-date version of the jsprettify ' +
+        'bookmarklet. It may go away at some point. Meanwhile, go to ' +
+        'http://code.google.com/p/jsprettify/wiki/MakingInputsPretty to ' +
+        'get the updated bookmarklet.');
+};
