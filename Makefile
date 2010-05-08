@@ -14,13 +14,16 @@ dirs: build
 build:
 	mkdir build
 
-_build: $(foreach file, $(EXPORT_FILES), build/$(file))
+_build: $(foreach file, $(EXPORT_FILES), build/$(file)) gadgets/bookmarklet.html
 
 clean:
 	@rm -vf $(foreach file, $(EXPORT_FILES), build/$(file))
 
 build/%: exports/%
 	$(CALCDEPS) $(CALCDEPS_FLAGS) -i $^ --output_file=$@
+
+gadgets/bookmarklet.html: build/bookmarklet.js
+	./bookmarklet.sh
 
 # TODO: generate this automatically {{{1
 
