@@ -12,22 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-(function() {
-  var scriptId = 'cannytrousers_appspot_com_js_bm_js';
-  var scriptUrl = 'http://cannytrousers.appspot.com/js/bm.js';
-  var funcName = 'prettifyTextInputs';
-  if (! document.getElementById(scriptId)) {
-    var script = document.createElement('script');
-    script.src = scriptUrl;
-    script.type = 'text/javascript';
-    script.id = scriptId;
-    document.body.appendChild(script);
+var scriptId = 'cannytrousers_appspot_com_js_bm_js';
+var scriptUrl = 'http://cannytrousers.appspot.com/js/bm.js';
+var funcName = 'prettifyTextInputs';
+if (! document.getElementById(scriptId)) {
+  var script = document.createElement('script');
+  script.src = scriptUrl;
+  script.type = 'text/javascript';
+  script.id = scriptId;
+  document.body.appendChild(script);
+}
+(function doThingEventually() {
+  if (funcName in window) {
+    window[funcName]();
+  } else {
+    window.setTimeout(doThingEventually, 100);
   }
-  (function doThingEventually() {
-    if (funcName in window) {
-      window[funcName]();
-    } else {
-      window.setTimeout(doThingEventually, 100);
-    }
-  })();
 })();
