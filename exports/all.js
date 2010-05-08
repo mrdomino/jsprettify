@@ -12,4 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-window.prettifyTextInputs;
+goog.require('jsprettify');
+
+window['jsprettify'] =
+  {'prettify': jsprettify.prettify
+  ,'prettifyHtml': jsprettify.prettifyHtml
+  ,'prettifyStr': jsprettify.prettifyStr
+  ,'prettifyTextInputs': jsprettify.prettifyTextInputs
+  ,'run': jsprettify.run
+  }

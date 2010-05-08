@@ -22,7 +22,7 @@ limitations under the License.
   goog.require('goog.events');
   goog.require('goog.events.EventType');
   goog.require('goog.testing.jsunit');
-  goog.require('jsprettify');
+  goog.require('jsprettify.prettifyStr');
   goog.require('jsprettify.example');
 </script>
 <body>
@@ -40,7 +40,7 @@ limitations under the License.
   }
   function testUpdatesDivInitially() {
     window.doJsprettifyExample();
-    assertEquals(window.prettifyStr('"Initial text."'),
+    assertEquals(jsprettify.prettifyStr('"Initial text."'),
         goog.dom.getTextContent(goog.dom.$('output')));
   }
   function testUpdatesDivOnUpdate() {
