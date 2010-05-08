@@ -11,6 +11,9 @@ all: dirs _build
 
 dirs: build
 
+deps.js: exports/* build/* clean
+	./genjsdeps.py
+
 build:
 	mkdir build
 
