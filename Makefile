@@ -11,8 +11,8 @@ all: dirs _build
 
 dirs: build
 
-deps.js: exports/* build/* clean
-	./genjsdeps.py
+deps.js: exports/* clean
+	$(CALCDEPS) -o deps -d $(CLOSURE_DIR) -e deploy -p . > $@
 
 build:
 	mkdir build
