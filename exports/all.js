@@ -20,4 +20,15 @@ window['jsprettify'] =
   ,'prettifyStr': jsprettify.prettifyStr
   ,'prettifyTextInputs': jsprettify.prettifyTextInputs
   ,'run': jsprettify.run
-  }
+  };
+
+// XXX DEPRECATED: This will go away soon!
+for (var k in window['jsprettify']) {
+  window[k] = function() {
+    alert('WARNING: this page is calling jsprettify in a deprecated manner. ' +
+          'The correct, current way to call jsprettify is through ' +
+          'window.jsprettify.*, not window.*. Sorry for the ' +
+          'inconvenience.');
+    window['jsprettify'][k]();
+  };
+};
