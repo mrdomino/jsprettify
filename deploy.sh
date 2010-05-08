@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 TODAY=`date +%Y%m%d`
 projdir=$PWD
