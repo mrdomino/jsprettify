@@ -16,3 +16,12 @@ goog.require('jsprettify.prettify');
 
 window['jsprettify'] = window['jsprettify'] || {};
 window['jsprettify']['prettify'] = jsprettify.prettify;
+
+// XXX DEPRECATED
+window['prettify'] = function() {
+  alert('WARNING: this page is calling jsprettify in a deprecated manner. ' +
+        'The correct, current way to call jsprettify is with ' +
+        'window.jsprettify.prettify, not window.prettify. Sorry for the ' +
+        'inconvenience.');
+  window.jsprettify.prettify();
+};
