@@ -20,10 +20,12 @@ from subprocess import call
 compiler_jar = sep.join(['..', 'closure-compiler', 'compiler.jar'])
 closure_dir = sep.join(['..', 'closure-library', 'closure'])
 calcdeps = sep.join([closure_dir, 'bin', 'calcdeps.py'])
-targets = [{'src': 'jsprettify/jsprettify.js',
+targets = [{'src': sep.join(['exports', 'prettify.js']),
             'out': sep.join(['build', 'prettify-comp.js'])},
-           {'src': sep.join(['gadgets', 'example.js']),
-            'out': sep.join(['build', 'example-comp.js'])},
+           {'src': sep.join(['exports', 'bm.js']),
+            'out': sep.join(['build', 'bm-comp.js'])},
+           {'src': sep.join(['exports', 'run.js']),
+            'out': sep.join(['build', 'run-comp.js'])},
            {'src': 'bookmarklet.js',
             'out': sep.join(['build', 'bookmarklet-comp.js']),
             'ext': 'bookmarklet-externs.js'}]
@@ -36,7 +38,8 @@ for t in targets:
              '-p', closure_dir, '-p', '.', '--output_file=' + t['out'], '-i',
              t['src'],
              '-f', '--compilation_level=ADVANCED_OPTIMIZATIONS',
-             '-f','--warning_level=VERBOSE'
+             '-f','--warning_level=VERBOSE',
+             '-f', '--output_wrapper="(function(){%output%})();"'
             ]
     if 'ext' in t:
         flags.extend(['-f', '--externs', '-f', t['ext']])

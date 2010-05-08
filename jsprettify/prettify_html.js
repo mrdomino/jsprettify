@@ -50,7 +50,3 @@ jsprettify.prettifyHtml = function(e, opt_args) {
   }
   return ret;
 };
-
-
-window['jsprettify'] = window['jsprettify'] || {};
-window['jsprettify']['prettifyHtml'] = jsprettify.prettifyHtml;
