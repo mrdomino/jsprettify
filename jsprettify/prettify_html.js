@@ -23,7 +23,7 @@ goog.require('jsprettify.prettifyStr');
  * Prettifies HTML Nodes by recursively prettifying their child text nodes. It
  * operates in-place, and then returns the input node.
  * @param {Node|null} e Node to start prettifying.
- * @param {{uglyTags: Array.<string>, uglyClass: string}} opt_args Optional
+ * @param {{uglyTags: Array.<string>, uglyClass: string}=} opt_args Optional
  *     arguments to customize the behavior of the function. 'uglyTags' is an
  *     array of tagnames not to prettify. 'uglyClass' is a string consisting
  *     of the class not to prettify.
