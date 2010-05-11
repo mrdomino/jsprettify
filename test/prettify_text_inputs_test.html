@@ -30,6 +30,7 @@ limitations under the License.
       ><input type="text" value="'Pretty'"
       ><input type="password" value="'Ugly'"
     ></form
+    ><div id="edit" contenteditable="true">'Pretty.'</div
   ></div>
 <script>
   var original;
@@ -56,5 +57,11 @@ limitations under the License.
     jsprettify.prettifyTextInputs();
     var newPass = goog.dom.$$('input')[1];
     assertEquals(oldPass.value, newPass.value);
+  }
+  function testPrettifiesContenteditableInputs() {
+    var editable = goog.dom.$('edit');
+    var old = editable.cloneNode(true);
+    jsprettify.prettifyTextInputs();
+    assertEquals(jsprettify.prettifyStr(old.innerHTML), editable.innerHTML);
   }
 </script>
