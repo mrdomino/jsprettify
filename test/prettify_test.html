@@ -97,5 +97,13 @@ limitations under the License.
     var ugly = selectPretty().cloneNode(true);
     jsprettify.prettify();
     var pretty = selectPretty();
+    assertEquals(ugly.innerHTML, pretty.innerHTML);
   }
+  function testPreservesReferencesToNodes() {
+    var selectPretty = function() { return goog.dom.$$('*', 'prettify')[1].firstChild; };
+    var ugly = selectPretty();
+    jsprettify.prettify();
+    ugly.innerHTML = 'hi';
+    assertEquals(ugly.innerHTML, selectPretty().innerHTML);
+  };
 </script>
