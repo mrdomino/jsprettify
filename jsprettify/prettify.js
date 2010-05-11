@@ -28,6 +28,6 @@ jsprettify.prettify = function() {
   var opts = {'uglyTags': ['code', 'kbd', 'pre', 'script'],
               'uglyClass': 'keepugly'};
   for (var i = 0; i < es.length; i++) {
-    goog.dom.replaceNode(jsprettify.prettifyHtml(es[i], opts), es[i]);
+    jsprettify.prettifyHtml(es[i], opts);
   }
 };

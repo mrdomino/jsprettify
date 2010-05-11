@@ -29,12 +29,13 @@ limitations under the License.
     assertEquals(expected.innerHTML,
         jsprettify.prettifyHtml(input).innerHTML);
   }
-  function testPrettifiesNonDestructively() {
+  function testPrettifiesInPlace() {
     var myNode = goog.dom.$dom('p', null, 'Test---test.');
-    var cloneNode = myNode.cloneNode(true);
-    var prettified = jsprettify.prettifyHtml(cloneNode);
-    assertEquals(goog.dom.getTextContent(myNode),
-        goog.dom.getTextContent(cloneNode));
+    var prettyNode = goog.dom.$dom('p', null,
+        jsprettify.prettifyStr('Test---test.'));
+    jsprettify.prettifyHtml(myNode);
+    assertEquals(goog.dom.getTextContent(prettyNode),
+        goog.dom.getTextContent(myNode));
   }
   function testPrettifiesTextNodes() {
     var myTextNode = goog.dom.createTextNode('Test---test.');

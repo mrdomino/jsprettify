@@ -20,15 +20,14 @@ goog.require('jsprettify.prettifyStr');
 
 
 /**
- * Prettifies HTML Nodes by recursively prettifying their child text nodes.
- * This function operates nondestructively -- a prettified HTML fragment is
- * returned, and can replace the existing one to prettify a document.
+ * Prettifies HTML Nodes by recursively prettifying their child text nodes. It
+ * operates in-place, and then returns the input node.
  * @param {Node|null} e Node to start prettifying.
  * @param {{uglyTags: Array.<string>, uglyClass: string}} opt_args Optional
  *     arguments to customize the behavior of the function. 'uglyTags' is an
  *     array of tagnames not to prettify. 'uglyClass' is a string consisting
  *     of the class not to prettify.
- * @return {Node|null} Prettified version of the passed node.
+ * @return {Node|null} The passed node.
  */
 jsprettify.prettifyHtml = function(e, opt_args) {
   var args = opt_args || {};
@@ -37,16 +36,15 @@ jsprettify.prettifyHtml = function(e, opt_args) {
   if (e == null) {
     return null;
   }
-  var ret = e.cloneNode(true);
   if (e.nodeType == goog.dom.NodeType.TEXT) {
-    ret.data = jsprettify.prettifyStr(ret.data);
+    e.data = jsprettify.prettifyStr(e.data);
   } else if (! goog.array.contains(uglyTags, e.nodeName.toLowerCase()) &&
       ! (e.className && e.className == uglyClass)) {
-    var curChildren = ret.childNodes;
+    var curChildren = e.childNodes;
     for (var i = 0; i < curChildren.length; i++) {
       goog.dom.replaceNode(jsprettify.prettifyHtml(curChildren[i], opt_args),
           curChildren[i]);
     }
   }
-  return ret;
+  return e;
 };
