@@ -31,6 +31,7 @@ limitations under the License.
       ><input type="password" value="'Ugly'"
     ></form
     ><div id="edit" contenteditable="true">'Pretty.'</div
+    ><div id="nonedit">'Ugly.'</div
   ></div>
 <script>
   var original;
@@ -63,5 +64,11 @@ limitations under the License.
     var old = editable.cloneNode(true);
     jsprettify.prettifyTextInputs();
     assertEquals(jsprettify.prettifyStr(old.innerHTML), editable.innerHTML);
+  }
+  function testDoesNotPrettifyNonContentEditableDivs() {
+    var oldDiv = goog.dom.$('nonedit').cloneNode(true);
+    jsprettify.prettifyTextInputs();
+    var newDiv = goog.dom.$('nonedit');
+    assertEquals(oldDiv.innerHTML, newDiv.innerHTML);
   }
 </script>

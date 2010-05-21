@@ -35,7 +35,9 @@ jsprettify.prettifyTextInputs = function() {
       input.value = jsprettify.prettifyStr(input.value);
     }
   }
-  var hasContentEditable = function(n) { return n.contentEditable; };
+  var hasContentEditable = function(n) {
+    return n.contentEditable == 'true';
+  };
   var editableNodes = goog.dom.findNodes(document.body, hasContentEditable);
   for (var i = 0, l = editableNodes.length; i < l; ++i) {
     jsprettify.prettifyHtml(editableNodes[i]);
