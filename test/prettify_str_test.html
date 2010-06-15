@@ -60,8 +60,8 @@ limitations under the License.
     assertPrettifiedEquals(e.ldquo + 'word' + e.rdquo + '.', '"word".');
   }
   function testPrettifiesQuotesAtEndOfLine() {
-    assertPrettifiedEquals('word.' + e.rsquo, "word.'");
-    assertPrettifiedEquals('word.' + e.rdquo, 'word."');
+    assertPrettifiedEquals(e.lsquo + 'word.' + e.rsquo, "'word.'");
+    assertPrettifiedEquals(e.ldquo + 'word.' + e.rdquo, '"word."');
   }
   function testPrettifiesQuotesWithWhitespace() {
     assertPrettifiedEquals('Word\t' + e.lsquo + 'word' + e.rsquo + '\nword.',
