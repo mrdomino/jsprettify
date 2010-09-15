@@ -24,7 +24,7 @@ goog.provide('jsprettify.entities');
  */
 jsprettify.entities = {
   endash: '\u2013',
-  emdash: '\u2014',
+  emdash: '\u200a\u2014\u200a',
   lsquo:  '\u2018',
   rsquo:  '\u2019',
   ldquo:  '\u201c',
